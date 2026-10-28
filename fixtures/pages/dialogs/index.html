@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drafts - Acme Docs</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script></head>
+<body><header class="bar"><strong>Acme Docs</strong><span>Drafts</span></header>
+<main class="wrap">
+  <h1>Drafts</h1>
+  <div class="card"><table><thead><tr><th>Name</th><th>Updated</th><th></th></tr></thead><tbody>
+    <tr><td>Quarterly plan</td><td>2026-09-30</td><td><button class="danger" id="del">Delete</button></td></tr>
+    <tr><td>Hiring notes</td><td>2026-09-12</td><td><button class="danger" disabled>Delete</button></td></tr>
+  </tbody></table></div>
+  <p id="out" class="muted"></p>
+</main>
+<script>
+  // Native confirm -> prompt -> alert chain.
+  document.getElementById('del').onclick = async () => {
+    const out = document.getElementById('out');
+    const confirmed = window.confirm('Delete the draft "Quarterly plan"? This cannot be undone.');
+    if (!confirmed) { await bench.submit('dialogs', { confirmed: false, typed: null }); out.textContent = 'Deletion cancelled.'; return; }
+    const typed = window.prompt('Type the draft name to confirm deletion:', '');
+    await bench.submit('dialogs', { confirmed: true, typed });
+    const ok = typed === 'Quarterly plan';
+    out.textContent = ok ? 'Draft deleted.' : 'Name did not match. Draft kept.';
+    window.alert(ok ? 'Draft deleted.' : 'Name did not match.');
+  };
+</script></body></html>

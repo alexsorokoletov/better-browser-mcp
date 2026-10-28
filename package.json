@@ -1,0 +1,10 @@
+{
+  "name": "better-browser-mcp",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "fixtures": "node fixtures/server.mjs",
+    "test:fixtures": "node --test fixtures/test"
+  }
+}

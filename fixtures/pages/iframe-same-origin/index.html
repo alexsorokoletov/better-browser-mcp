@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Payments - Acme Portal</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script></head>
+<body><header class="bar"><strong>Acme Portal</strong><span>Payments</span></header>
+<main class="wrap">
+  <h1>Pending payout</h1>
+  <div class="card"><p>Payout <b>#PO-5521</b> for <b>$1,240.00</b> needs approval.</p>
+    <button class="secondary" onclick="bench.toast('Use the approval widget below')">Approve</button>
+  </div>
+  <iframe id="outer" src="outer.html" title="Approval widget" style="width:100%;height:340px;border:1px solid #ccd;border-radius:8px;background:#fff"></iframe>
+</main></body></html>

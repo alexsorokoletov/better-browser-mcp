@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New post - Acme Blog</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script>
+<style> .tb { display: flex; gap: 6px; padding: 6px; border: 1px solid #c9ced6; border-bottom: 0; border-radius: 6px 6px 0 0; background: #f3f5f8; }
+  .tb button { padding: 4px 10px; background: #fff; color: var(--fg); border-color: #c9ced6; }
+  #ed { min-height: 140px; border: 1px solid #c9ced6; border-radius: 0 0 6px 6px; padding: 10px; background: #fff; outline: none; }
+  #ed:focus { border-color: var(--accent); } </style></head>
+<body><header class="bar"><strong>Acme Blog</strong></header>
+<main class="wrap">
+  <h1>New post</h1>
+  <div class="card">
+    <div class="tb" role="toolbar" aria-label="Formatting">
+      <button type="button" data-cmd="bold" aria-label="Bold"><b>B</b></button>
+      <button type="button" data-cmd="italic" aria-label="Italic"><i>I</i></button>
+      <button type="button" data-cmd="underline" aria-label="Underline"><u>U</u></button>
+    </div>
+    <div id="ed" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Post body"><p>Start writing here...</p></div>
+    <p><button id="pub">Publish</button> <span id="out"></span></p>
+  </div>
+</main>
+<script>
+  const ed = document.getElementById('ed');
+  document.querySelector('.tb').addEventListener('mousedown', (e) => e.preventDefault()); // keep selection
+  document.querySelector('.tb').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-cmd]'); if (!b) return;
+    document.execCommand('styleWithCSS', false, false);
+    document.execCommand(b.dataset.cmd);
+    ed.focus();
+  });
+  document.getElementById('pub').onclick = async () => {
+    await bench.submit('rich-text', { html: ed.innerHTML, text: ed.innerText });
+    document.getElementById('out').textContent = 'Published';
+  };
+</script></body></html>

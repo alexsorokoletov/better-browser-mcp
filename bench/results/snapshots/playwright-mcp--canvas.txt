@@ -1,0 +1,19 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/canvas/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/canvas/
+- Page Title: Mission control
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-50-778Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/canvas/
+- Page Title: Mission control
+### Snapshot
+```yaml
+- generic [active] [ref=f13e1]:
+  - banner [ref=f13e2]:
+    - strong [ref=f13e3]: Orbital Ops
+  - main [ref=f13e4]
+```

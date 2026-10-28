@@ -1,0 +1,29 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/rich-text/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/rich-text/
+- Page Title: New post - Acme Blog
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-51-736Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/rich-text/
+- Page Title: New post - Acme Blog
+### Snapshot
+```yaml
+- generic [active] [ref=f18e1]:
+  - banner [ref=f18e2]:
+    - strong [ref=f18e3]: Acme Blog
+  - main [ref=f18e4]:
+    - heading "New post" [level=1] [ref=f18e5]
+    - generic [ref=f18e6]:
+      - toolbar "Formatting" [ref=f18e7]:
+        - button "Bold" [ref=f18e8] [cursor=pointer]: B
+        - button "Italic" [ref=f18e9] [cursor=pointer]: I
+        - button "Underline" [ref=f18e10] [cursor=pointer]: U
+      - textbox "Post body" [ref=f18e11]:
+        - paragraph [ref=f18e12]: Start writing here...
+      - paragraph [ref=f18e13]:
+        - button "Publish" [ref=f18e14] [cursor=pointer]
+```

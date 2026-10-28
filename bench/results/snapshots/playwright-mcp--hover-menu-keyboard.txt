@@ -1,0 +1,26 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/hover-menu-keyboard/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/hover-menu-keyboard/
+- Page Title: Settings - Acme Portal
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-50-864Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/hover-menu-keyboard/
+- Page Title: Settings - Acme Portal
+### Snapshot
+```yaml
+- generic [active] [ref=f14e1]:
+  - banner [ref=f14e2]:
+    - strong [ref=f14e3]: Acme Portal
+    - generic [ref=f14e4]: Account ▾
+  - main [ref=f14e6]:
+    - heading "Preferences" [level=1] [ref=f14e7]
+    - generic [ref=f14e8]:
+      - generic [ref=f14e9]: Time zone
+      - combobox "Time zone" [ref=f14e11]
+      - paragraph [ref=f14e12]: "Selected: none"
+      - button "Save preferences" [ref=f14e13] [cursor=pointer]
+```

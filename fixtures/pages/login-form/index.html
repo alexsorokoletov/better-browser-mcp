@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign in - Acme Portal</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script></head>
+<body><header class="bar"><strong>Acme Portal</strong></header>
+<main class="wrap" style="max-width:420px">
+  <form id="login" class="card" autocomplete="off" novalidate>
+    <h1>Sign in</h1>
+    <label for="u">Username</label><input id="u" name="username" type="text" autocomplete="off">
+    <label for="p">Password</label><input id="p" name="password" type="password" autocomplete="new-password">
+    <p><label class="inline"><input type="checkbox" name="remember"> Keep me signed in</label></p>
+    <button id="submit" type="submit" disabled>Sign in</button>
+    <p id="msg" role="alert" class="muted"></p>
+  </form>
+</main>
+<script>
+  // Submit stays disabled until both fields receive real input events.
+  const f = document.getElementById('login'), btn = document.getElementById('submit'), msg = document.getElementById('msg');
+  const sync = () => { btn.disabled = !(f.username.value && f.password.value); };
+  f.username.addEventListener('input', sync); f.password.addEventListener('input', sync);
+  f.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true; msg.textContent = 'Signing in...';
+    const r = await fetch('/api/login', { method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ username: f.username.value, password: f.password.value }) }).then((r) => r.json());
+    await new Promise((r) => setTimeout(r, 400));
+    if (r.ok) { const who = f.username.value; f.innerHTML = '<h1>Welcome back</h1><p>You are signed in as <b></b>.</p>'; f.querySelector('b').textContent = who; }
+    else { msg.textContent = 'Invalid username or password.'; sync(); }
+  });
+</script></body></html>

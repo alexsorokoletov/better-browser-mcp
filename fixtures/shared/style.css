@@ -1,0 +1,30 @@
+:root { --bg: #f6f7f9; --fg: #1d2330; --muted: #6b7280; --card: #fff; --line: #e3e6ea; --accent: #2f6fed; --danger: #d64545; --ok: #1f9d55; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--fg); }
+.wrap { max-width: 960px; margin: 0 auto; padding: 24px 16px 64px; }
+header.bar { background: #1d2330; color: #fff; padding: 10px 16px; display: flex; gap: 16px; align-items: center; }
+header.bar a { color: #fff; text-decoration: none; }
+h1 { font-size: 22px; margin: 0 0 12px; }
+h2 { font-size: 17px; margin: 18px 0 8px; }
+.muted { color: var(--muted); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin: 12px 0; }
+label { display: block; font-weight: 500; margin: 10px 0 4px; }
+input[type=text], input[type=email], input[type=tel], input[type=password], input[type=number], input[type=date], input[type=time], select, textarea {
+  width: 100%; padding: 8px 10px; border: 1px solid #c9ced6; border-radius: 6px; font: inherit; background: #fff; }
+textarea { min-height: 80px; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 600px) { .row2 { grid-template-columns: 1fr; } }
+.inline label, label.inline { display: inline-flex; align-items: center; gap: 6px; font-weight: 400; margin-right: 14px; }
+button, .btn { font: inherit; padding: 8px 16px; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; }
+button.secondary { background: #fff; color: var(--accent); }
+button.danger { background: var(--danger); border-color: var(--danger); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+table { border-collapse: collapse; width: 100%; background: #fff; }
+th, td { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: left; font-size: 14px; }
+th { background: #eef1f5; user-select: none; }
+.toast { position: fixed; right: 16px; bottom: 16px; background: #1d2330; color: #fff; padding: 10px 16px; border-radius: 8px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.toast.show { opacity: 1; }
+.toast.error { background: var(--danger); }
+.task-list li { margin: 6px 0; }
+.spinner { width: 28px; height: 28px; border: 3px solid #cfd6e0; border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }

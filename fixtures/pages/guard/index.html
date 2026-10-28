@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Guard</title></head>
+<body>
+  <h1>Product</h1>
+  <p id="state">idle</p>
+  <button id="cart" onclick="document.getElementById('state').textContent='added to cart'">Add to cart</button>
+  <button id="buy" onclick="document.getElementById('state').textContent='ordered'">Buy now</button>
+  <div role="button" tabindex="0" id="post" style="display:inline-block;padding:8px 16px;border:1px solid"
+       onclick="document.getElementById('state').textContent='posted'"><span>Post</span></div>
+  <a id="checkout" href="/checkout/">Proceed to checkout</a>
+  <form id="f" action="/checkout/" method="get" onsubmit="document.getElementById('state').textContent='submitted'">
+    <input id="qty" aria-label="Quantity" value="1"><button id="go">Continue</button>
+  </form>
+</body></html>

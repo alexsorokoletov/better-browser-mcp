@@ -1,0 +1,35 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/iframe-cross-origin/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/iframe-cross-origin/
+- Page Title: Checkout - Acme Store
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-49-499Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/iframe-cross-origin/
+- Page Title: Checkout - Acme Store
+### Snapshot
+```yaml
+- generic [active] [ref=f5e1]:
+  - banner [ref=f5e2]:
+    - strong [ref=f5e3]: Acme Store
+    - generic [ref=f5e4]: Checkout
+  - main [ref=f5e5]:
+    - heading "Checkout" [level=1] [ref=f5e6]
+    - generic [ref=f5e7]:
+      - paragraph [ref=f5e8]: "Order total: $89.00"
+      - generic [ref=f5e9]: Gift message
+      - textbox "Gift message" [ref=f5e10]:
+        - /placeholder: Optional gift message
+    - paragraph [ref=f5e11]: "Coupons are handled by our partner:"
+    - iframe [ref=f5e12]:
+      - generic [ref=f6e2]:
+        - heading "CouponHub" [level=2] [ref=f6e3]
+        - generic [ref=f6e4]: Coupon code
+        - textbox "Coupon code" [ref=f6e5]
+        - paragraph [ref=f6e6]:
+          - button "Apply coupon" [ref=f6e7] [cursor=pointer]
+        - paragraph
+```

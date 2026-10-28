@@ -1,0 +1,91 @@
+Successfully navigated to http://127.0.0.1:4777/long-form/.
+## Pages
+1: Create account - Acme Portal (http://127.0.0.1:4777/long-form/) [selected]
+## Latest page snapshot
+uid=3_0 RootWebArea "Create account - Acme Portal" url="http://127.0.0.1:4777/long-form/"
+  uid=3_1 banner
+    uid=3_2 "Acme Portal"
+    uid=3_3 "Onboarding"
+  uid=3_4 main
+    uid=3_5 heading "Create your account" level="1"
+    uid=3_6 form
+      uid=3_7 heading "Personal details" level="2"
+      uid=3_8 "First name"
+      uid=3_9 textbox "First name" required
+      uid=3_10 "Last name"
+      uid=3_11 textbox "Last name" required
+      uid=3_12 "Email"
+      uid=3_13 textbox "Email" required
+      uid=3_14 "Phone"
+      uid=3_15 textbox "Phone"
+      uid=3_16 "Date of birth"
+      uid=3_17 Date "Date of birth" invalid="true"
+        uid=3_18 spinbutton "Month Month" value="0" valuemax="12" valuemin="1" valuetext=""
+        uid=3_19 "/"
+        uid=3_20 spinbutton "Day Day" value="0" valuemax="31" valuemin="1" valuetext=""
+        uid=3_21 "/"
+        uid=3_22 spinbutton "Year Year" value="0" valuemax="275760" valuemin="1" valuetext=""
+        uid=3_23 button "Show date picker Show date picker" haspopup="menu"
+      uid=3_24 "Preferred call time"
+      uid=3_25 InputTime "Preferred call time"
+        uid=3_26 spinbutton "Hours Hours" value="0" valuemax="12" valuemin="1" valuetext=""
+        uid=3_27 ":"
+        uid=3_28 spinbutton "Minutes Minutes" value="0" valuemax="59" valuemin="0" valuetext=""
+        uid=3_29 " "
+        uid=3_30 spinbutton "AM/PM AM/PM" value="0" valuemax="2" valuemin="1" valuetext=""
+        uid=3_31 button "Show time picker Show time picker" haspopup="menu"
+      uid=3_32 heading "Address" level="2"
+      uid=3_33 "Street address"
+      uid=3_34 textbox "Street address"
+      uid=3_35 "City"
+      uid=3_36 textbox "City"
+      uid=3_37 "Postal code"
+      uid=3_38 textbox "Postal code"
+      uid=3_39 "Country"
+      uid=3_40 combobox "Country" expandable haspopup="menu" invalid="true" value="Select a country..."
+        uid=3_41 option "Select a country..." selected
+        uid=3_42 option "Australia"
+        uid=3_43 option "Canada"
+        uid=3_44 option "France"
+        uid=3_45 option "Germany"
+        uid=3_46 option "Ireland"
+        uid=3_47 option "Portugal"
+        uid=3_48 option "United Kingdom"
+        uid=3_49 option "United States"
+      uid=3_50 heading "Account" level="2"
+      uid=3_51 "Account type"
+      uid=3_52 radio "Personal" checked
+      uid=3_53 "Personal"
+      uid=3_54 radio "Business"
+      uid=3_55 "Business"
+      uid=3_56 radio "Non-profit"
+      uid=3_57 "Non-profit"
+      uid=3_58 "Plan"
+      uid=3_59 combobox "Plan" expandable haspopup="menu" value="Free"
+        uid=3_60 option "Free" selected
+        uid=3_61 option "Pro - billed monthly"
+        uid=3_62 option "Pro - billed annually"
+        uid=3_63 option "Enterprise"
+      uid=3_64 "Seats"
+      uid=3_65 spinbutton "Seats" value="1" valuemax="500" valuemin="1" valuetext="1"
+      uid=3_66 "Interests"
+      uid=3_67 checkbox "Analytics"
+      uid=3_68 "Analytics"
+      uid=3_69 checkbox "Automation"
+      uid=3_70 "Automation"
+      uid=3_71 checkbox "Billing" checked
+      uid=3_72 "Billing"
+      uid=3_73 checkbox "Security"
+      uid=3_74 "Security"
+      uid=3_75 "Preferred contact method"
+      uid=3_76 radio "Email" checked
+      uid=3_77 "Email"
+      uid=3_78 radio "Phone"
+      uid=3_79 "Phone"
+      uid=3_80 radio "SMS"
+      uid=3_81 "SMS"
+      uid=3_82 "About you"
+      uid=3_83 textbox "About you" multiline
+      uid=3_84 checkbox "Send me the monthly newsletter" checked
+      uid=3_85 checkbox "I accept the terms of service" invalid="true"
+      uid=3_86 button "Create account"

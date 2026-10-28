@@ -1,0 +1,14 @@
+Successfully navigated to http://127.0.0.1:4777/file-upload/.
+## Pages
+1: Upload documents - Acme Portal (http://127.0.0.1:4777/file-upload/) [selected]
+## Latest page snapshot
+uid=11_0 RootWebArea "Upload documents - Acme Portal" url="http://127.0.0.1:4777/file-upload/"
+  uid=11_1 banner
+    uid=11_2 "Acme Portal"
+    uid=11_3 "Documents"
+  uid=11_4 main
+    uid=11_5 heading "Upload documents" level="1"
+    uid=11_6 "Choose file"
+    uid=11_7 button "Choose file" value="No file chosen"
+    uid=11_8 button "Upload" disableable disabled
+    uid=11_9 "Or drop files here"

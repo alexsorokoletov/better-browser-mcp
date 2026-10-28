@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Settings - Acme Portal</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script>
+<style>
+  .menu { position: relative; display: inline-block; }
+  .menu > span { cursor: default; padding: 6px 10px; display: inline-block; }
+  .submenu { display: none; position: absolute; right: 0; top: 100%; background: #fff; color: var(--fg); min-width: 160px; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.12); z-index: 5; }
+  .menu:hover .submenu { display: block; }
+  .submenu a { display: block; padding: 8px 12px; color: var(--fg) !important; }
+  .submenu a:hover { background: #eef3ff; }
+  #overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 10; align-items: center; justify-content: center; }
+  #overlay.open { display: flex; }
+  #overlay .card { width: min(420px, 90vw); }
+  .cb { position: relative; }
+  [role=listbox] { list-style: none; margin: 4px 0 0; padding: 0; border: 1px solid #c9ced6; border-radius: 6px; max-height: 220px; overflow: auto; background: #fff; position: absolute; left: 0; right: 0; z-index: 3; }
+  [role=listbox][hidden] { display: none; }
+  [role=option] { padding: 6px 10px; cursor: default; }
+  [role=option].active { background: #2f6fed; color: #fff; }
+</style></head>
+<body><header class="bar"><strong>Acme Portal</strong><span style="flex:1"></span>
+  <div class="menu" id="acct"><span>Account &#9662;</span>
+    <div class="submenu" role="menu"><a href="#" role="menuitem" data-item="profile">Profile</a><a href="#" role="menuitem" data-item="billing">Billing</a><a href="#" role="menuitem" data-item="signout">Sign out</a></div>
+  </div></header>
+<main class="wrap">
+  <h1>Preferences</h1>
+  <div class="card">
+    <label for="tz">Time zone</label>
+    <div class="cb">
+      <input id="tz" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="tz-list" autocomplete="off" placeholder="Search time zones">
+      <ul id="tz-list" role="listbox" hidden></ul>
+    </div>
+    <p class="muted">Selected: <b id="tz-val">none</b></p>
+    <button id="save">Save preferences</button> <span id="out"></span>
+  </div>
+</main>
+<div id="overlay" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="card"><h2 id="mt">Billing</h2>
+  <p>Current plan: <b>Team</b> (12 seats)</p><p class="muted">Next invoice: 2026-11-01</p></div></div>
+<script type="module">
+  import { TIMEZONES } from '/shared/data.mjs';
+  const state = { billingOpened: false, modalClosedBy: null, timezone: null };
+  const overlay = document.getElementById('overlay');
+  // Menu items exist only while Account is hovered (CSS :hover).
+  document.querySelector('.submenu').addEventListener('click', (e) => {
+    const a = e.target.closest('a'); if (!a) return; e.preventDefault();
+    if (a.dataset.item === 'billing') { state.billingOpened = true; state.modalClosedBy = null; overlay.classList.add('open'); }
+    else bench.toast(a.textContent + ' is not available');
+  });
+  // Modal closes only with Escape.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) { overlay.classList.remove('open'); state.modalClosedBy = 'escape'; }
+  });
+  // Combobox: typing filters; ArrowUp/Down + Enter commits. Mouse clicks on options do nothing.
+  const tz = document.getElementById('tz'), list = document.getElementById('tz-list');
+  let items = [], active = -1;
+  function renderList() {
+    const q = tz.value.trim().toLowerCase();
+    items = TIMEZONES.filter((t) => t.toLowerCase().includes(q));
+    list.replaceChildren(...items.map((t, i) => { const li = document.createElement('li'); li.id = 'tz-' + i; li.setAttribute('role', 'option'); li.textContent = t; li.className = i === active ? 'active' : ''; li.setAttribute('aria-selected', i === active); return li; }));
+    list.hidden = false; tz.setAttribute('aria-expanded', 'true');
+    tz.setAttribute('aria-activedescendant', active >= 0 ? 'tz-' + active : '');
+    list.children[active]?.scrollIntoView({ block: 'nearest' });
+  }
+  list.addEventListener('mousedown', (e) => e.preventDefault());
+  tz.addEventListener('focus', () => { active = -1; renderList(); });
+  tz.addEventListener('input', () => { active = -1; renderList(); });
+  tz.addEventListener('blur', () => { list.hidden = true; tz.setAttribute('aria-expanded', 'false'); });
+  tz.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); active = Math.min(items.length - 1, active + 1); renderList(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); active = Math.max(0, active - 1); renderList(); }
+    else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (active >= 0 && items[active]) { state.timezone = items[active]; tz.value = items[active]; document.getElementById('tz-val').textContent = items[active]; list.hidden = true; tz.setAttribute('aria-expanded', 'false'); }
+    } else if (e.key === 'Escape') { list.hidden = true; }
+  });
+  tz.addEventListener('change', () => { if (tz.value !== state.timezone) { state.timezone = null; document.getElementById('tz-val').textContent = 'none'; } });
+  document.getElementById('save').onclick = async () => {
+    await bench.submit('hover-menu-keyboard', { ...state });
+    document.getElementById('out').textContent = 'Preferences saved';
+  };
+</script></body></html>

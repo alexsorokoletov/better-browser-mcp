@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Billing - Acme Portal</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script></head>
+<body><header class="bar"><strong>Acme Portal</strong><span>Billing</span></header>
+<main class="wrap">
+  <h1>Billing</h1>
+  <div class="card"><p>Your plan is managed in the billing portal.</p>
+    <p><a id="portal" class="btn" target="_blank" rel="opener" href="#">Open billing portal</a></p>
+    <p id="status" class="muted">Portal not opened yet.</p></div>
+</main>
+<script>
+  // A fresh token per page load. The portal tab must reach this tab via BroadcastChannel,
+  // which proves the original tab stayed open (the task was done in a new tab).
+  const token = Math.random().toString(36).slice(2, 10);
+  document.getElementById('portal').href = 'portal.html?t=' + token;
+  bench.event('new-tab', 'token-issued', { token });
+  const ch = new BroadcastChannel('bench-new-tab');
+  ch.onmessage = (e) => {
+    if (e.data?.type === 'ping' && e.data.token === token) {
+      ch.postMessage({ type: 'pong', token });
+      document.getElementById('status').textContent = 'Portal open in another tab.';
+    }
+  };
+</script></body></html>

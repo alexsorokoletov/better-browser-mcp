@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Create account - Acme Portal</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script></head>
+<body><header class="bar"><strong>Acme Portal</strong><span>Onboarding</span></header>
+<main class="wrap">
+<h1>Create your account</h1>
+<form id="f" class="card">
+  <h2>Personal details</h2>
+  <div class="row2">
+    <div><label for="firstName">First name</label><input id="firstName" name="firstName" type="text" required></div>
+    <div><label for="lastName">Last name</label><input id="lastName" name="lastName" type="text" required></div>
+  </div>
+  <div class="row2">
+    <div><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+    <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel"></div>
+  </div>
+  <div class="row2">
+    <div><label for="birthDate">Date of birth</label><input id="birthDate" name="birthDate" type="date" required></div>
+    <div><label for="startTime">Preferred call time</label><input id="startTime" name="startTime" type="time"></div>
+  </div>
+  <h2>Address</h2>
+  <label for="street">Street address</label><input id="street" name="street" type="text">
+  <div class="row2">
+    <div><label for="city">City</label><input id="city" name="city" type="text"></div>
+    <div><label for="postalCode">Postal code</label><input id="postalCode" name="postalCode" type="text"></div>
+  </div>
+  <label for="country">Country</label>
+  <select id="country" name="country" required>
+    <option value="">Select a country...</option>
+    <option value="AU">Australia</option><option value="CA">Canada</option><option value="FR">France</option>
+    <option value="DE">Germany</option><option value="IE">Ireland</option><option value="PT">Portugal</option>
+    <option value="GB">United Kingdom</option><option value="US">United States</option>
+  </select>
+  <h2>Account</h2>
+  <fieldset class="inline" style="border:0;padding:0"><legend>Account type</legend>
+    <label><input type="radio" name="accountType" value="personal" checked> Personal</label>
+    <label><input type="radio" name="accountType" value="business"> Business</label>
+    <label><input type="radio" name="accountType" value="nonprofit"> Non-profit</label>
+  </fieldset>
+  <div class="row2">
+    <div><label for="plan">Plan</label>
+      <select id="plan" name="plan">
+        <option value="free">Free</option><option value="pro-monthly">Pro - billed monthly</option>
+        <option value="pro-annual">Pro - billed annually</option><option value="enterprise">Enterprise</option>
+      </select></div>
+    <div><label for="seats">Seats</label><input id="seats" name="seats" type="number" min="1" max="500" value="1"></div>
+  </div>
+  <fieldset class="inline" style="border:0;padding:0"><legend>Interests</legend>
+    <label><input type="checkbox" name="interests" value="analytics"> Analytics</label>
+    <label><input type="checkbox" name="interests" value="automation"> Automation</label>
+    <label><input type="checkbox" name="interests" value="billing" checked> Billing</label>
+    <label><input type="checkbox" name="interests" value="security"> Security</label>
+  </fieldset>
+  <fieldset class="inline" style="border:0;padding:0"><legend>Preferred contact method</legend>
+    <label><input type="radio" name="contactMethod" value="email" checked> Email</label>
+    <label><input type="radio" name="contactMethod" value="phone"> Phone</label>
+    <label><input type="radio" name="contactMethod" value="sms"> SMS</label>
+  </fieldset>
+  <label for="bio">About you</label><textarea id="bio" name="bio"></textarea>
+  <p><label class="inline"><input type="checkbox" name="newsletter" checked> Send me the monthly newsletter</label></p>
+  <p><label class="inline"><input type="checkbox" name="terms" required> I accept the terms of service</label></p>
+  <button type="submit">Create account</button>
+</form></main>
+<script>
+  const f = document.getElementById('f');
+  f.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(f);
+    const data = {};
+    for (const k of ['firstName','lastName','email','phone','birthDate','startTime','street','city','postalCode','country','accountType','plan','seats','contactMethod','bio']) data[k] = fd.get(k);
+    data.interests = fd.getAll('interests');
+    data.newsletter = f.newsletter.checked;
+    data.terms = f.terms.checked;
+    await bench.submit('long-form', data);
+    bench.toast('Account created');
+  });
+</script></body></html>

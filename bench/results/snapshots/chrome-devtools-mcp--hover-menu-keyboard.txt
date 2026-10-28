@@ -1,0 +1,15 @@
+Successfully navigated to http://127.0.0.1:4777/hover-menu-keyboard/.
+## Pages
+1: Settings - Acme Portal (http://127.0.0.1:4777/hover-menu-keyboard/) [selected]
+## Latest page snapshot
+uid=13_0 RootWebArea "Settings - Acme Portal" url="http://127.0.0.1:4777/hover-menu-keyboard/"
+  uid=13_1 banner
+    uid=13_2 "Acme Portal"
+    uid=13_3 "Account ▾"
+  uid=13_4 main
+    uid=13_5 heading "Preferences" level="1"
+    uid=13_6 "Time zone"
+    uid=13_7 combobox "Time zone" autocomplete="list" expandable haspopup="listbox"
+    uid=13_8 "Selected: "
+    uid=13_9 "none"
+    uid=13_10 button "Save preferences"

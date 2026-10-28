@@ -1,0 +1,14 @@
+[t1] http://127.0.0.1:4777/iframe-same-origin/ "Payments - Acme Portal" scroll 0/192
+Acme Portal
+Payments
+main:
+ # Pending payout
+ Payout #PO-5521 for $1,240.00 needs approval.
+ button "Approve" [e1]
+ iframe "Approval widget" [e2]
+  ## Approval widget
+  Secured by PaySafe
+  button "Reject" [f1e1]
+  iframe "Confirm payout" [f1e2]
+   textbox "Approval note" [f2e1] placeholder="Optional note"
+   button "Approve payout" [f2e2]

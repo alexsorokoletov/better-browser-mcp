@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Upload documents - Acme Portal</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script>
+<style> #drop { border: 2px dashed #aab4c3; border-radius: 10px; padding: 36px; text-align: center; color: var(--muted); background: #fff; }
+  #drop.over { border-color: var(--accent); background: #eef3ff; } </style></head>
+<body><header class="bar"><strong>Acme Portal</strong><span>Documents</span></header>
+<main class="wrap">
+  <h1>Upload documents</h1>
+  <div class="card">
+    <label for="file">Choose file</label><input id="file" type="file" multiple>
+    <p><button id="up" disabled>Upload</button></p>
+  </div>
+  <div id="drop" class="card">Or drop files here</div>
+  <ul id="list"></ul>
+</main>
+<script>
+  // Real transfer: bytes go to /api/upload, server byte count is recorded next to the File.size.
+  const input = document.getElementById('file'), up = document.getElementById('up'), drop = document.getElementById('drop');
+  input.addEventListener('change', () => { up.disabled = !input.files.length; });
+  async function send(files, method) {
+    const out = [];
+    for (const f of files) {
+      const r = await fetch('/api/upload?name=' + encodeURIComponent(f.name), { method: 'POST', body: f }).then((r) => r.json());
+      out.push({ name: f.name, size: f.size, type: f.type, serverBytes: r.bytes, method });
+      const li = document.createElement('li'); li.textContent = `${f.name} (${f.size} bytes) uploaded`; document.getElementById('list').appendChild(li);
+    }
+    await bench.submit('file-upload', { files: out });
+    bench.toast('Upload complete');
+  }
+  up.onclick = () => send([...input.files], 'input');
+  drop.addEventListener('dragover', (e) => { e.preventDefault(); drop.classList.add('over'); });
+  drop.addEventListener('dragleave', () => drop.classList.remove('over'));
+  drop.addEventListener('drop', (e) => { e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer.files.length) send([...e.dataTransfer.files], 'drop'); });
+</script></body></html>

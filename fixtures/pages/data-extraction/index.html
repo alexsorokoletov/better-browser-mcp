@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orders report - Acme Portal</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script>
+<style> th[data-k] { cursor: pointer; } td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; } .pager { display: flex; gap: 8px; align-items: center; margin: 10px 0; } </style></head>
+<body><header class="bar"><strong>Acme Portal</strong><span>Reports</span></header>
+<main class="wrap">
+  <h1>Orders 2026</h1>
+  <div class="card" style="overflow-x:auto">
+    <table><thead><tr>
+      <th data-k="id">Order</th><th data-k="date">Date</th><th data-k="customer">Customer</th><th data-k="region">Region</th>
+      <th data-k="category">Category</th><th data-k="status">Status</th><th data-k="amountCents" class="num">Amount</th>
+    </tr></thead><tbody id="tb"></tbody></table>
+    <div class="pager"><button class="secondary" id="prev">Previous</button><span id="pg"></span><button class="secondary" id="next">Next</button>
+      <label class="inline" style="margin-left:auto">Rows per page
+        <select id="per" style="width:auto"><option>10</option><option selected>25</option><option>50</option></select></label></div>
+  </div>
+  <form id="ans" class="card">
+    <h2>Answer</h2>
+    <div class="row2">
+      <div><label for="count">Number of matching orders</label><input id="count" name="count" type="text"></div>
+      <div><label for="total">Total amount (USD)</label><input id="total" name="total" type="text"></div>
+    </div>
+    <p><button type="submit">Submit answer</button></p>
+  </form>
+</main>
+<script type="module">
+  import { tableRows, formatMoney } from '/shared/data.mjs';
+  const rows = tableRows().slice();
+  let page = 0, per = 25, sortK = 'date', dir = 1;
+  const tb = document.getElementById('tb');
+  function render() {
+    const sorted = rows.slice().sort((a, b) => (a[sortK] < b[sortK] ? -dir : a[sortK] > b[sortK] ? dir : a.id < b.id ? -1 : 1));
+    const pages = Math.ceil(sorted.length / per); page = Math.min(page, pages - 1);
+    tb.replaceChildren(...sorted.slice(page * per, page * per + per).map((r) => {
+      const tr = document.createElement('tr');
+      for (const v of [r.id, r.date, r.customer, r.region, r.category, r.status, formatMoney(r.amountCents)]) { const td = document.createElement('td'); td.textContent = v; tr.appendChild(td); }
+      tr.lastChild.className = 'num'; return tr;
+    }));
+    document.getElementById('pg').textContent = `Page ${page + 1} of ${pages}`;
+    document.querySelectorAll('th[data-k]').forEach((th) => { th.setAttribute('aria-sort', th.dataset.k === sortK ? (dir > 0 ? 'ascending' : 'descending') : 'none'); });
+  }
+  document.querySelector('thead').addEventListener('click', (e) => {
+    const th = e.target.closest('th[data-k]'); if (!th) return;
+    if (sortK === th.dataset.k) dir = -dir; else { sortK = th.dataset.k; dir = 1; }
+    page = 0; render();
+  });
+  document.getElementById('prev').onclick = () => { page = Math.max(0, page - 1); render(); };
+  document.getElementById('next').onclick = () => { page++; render(); };
+  document.getElementById('per').onchange = (e) => { per = Number(e.target.value); page = 0; render(); };
+  render();
+  document.getElementById('ans').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    await bench.submit('data-extraction', { count: e.target.count.value, total: e.target.total.value });
+    bench.toast('Answer submitted');
+  });
+</script></body></html>

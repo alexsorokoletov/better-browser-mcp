@@ -1,0 +1,31 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/login-form/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/login-form/
+- Page Title: Sign in - Acme Portal
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-48-969Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/login-form/
+- Page Title: Sign in - Acme Portal
+### Snapshot
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - strong [ref=e3]: Acme Portal
+  - main [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Sign in" [level=1] [ref=e6]
+      - generic [ref=e7]: Username
+      - textbox "Username" [ref=e8]
+      - generic [ref=e9]: Password
+      - textbox "Password" [ref=e10]
+      - paragraph [ref=e11]:
+        - generic [ref=e12]:
+          - checkbox "Keep me signed in" [ref=e13]
+          - text: Keep me signed in
+      - button "Sign in" [disabled] [ref=e14]
+      - alert
+```

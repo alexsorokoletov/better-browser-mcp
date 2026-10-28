@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inventory - Acme Portal</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script>
+<style>
+  #vp { height: 560px; overflow-y: auto; position: relative; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+  #spacer { position: relative; }
+  .vrow { position: absolute; left: 0; right: 0; height: 36px; display: grid; grid-template-columns: 70px 1fr 120px 110px 90px; align-items: center; padding: 0 10px; border-bottom: 1px solid #f0f1f3; }
+  .vrow button { padding: 3px 10px; font-size: 13px; }
+  .vrow.sel { background: #eef6ee; }
+</style></head>
+<body><header class="bar"><strong>Acme Portal</strong><span>Inventory</span></header>
+<main class="wrap">
+  <h1>Inventory items</h1>
+  <p class="muted">5,000 items. <span id="selected"></span></p>
+  <div id="vp" role="list" aria-label="Inventory"><div id="spacer"></div></div>
+</main>
+<script type="module">
+  import { virtualRows } from '/shared/data.mjs';
+  const rows = virtualRows(), H = 36, OVERSCAN = 7;
+  const vp = document.getElementById('vp'), spacer = document.getElementById('spacer');
+  spacer.style.height = rows.length * H + 'px';
+  let selected = null;
+  function render() {
+    const first = Math.max(0, Math.floor(vp.scrollTop / H) - OVERSCAN);
+    const last = Math.min(rows.length, Math.ceil((vp.scrollTop + vp.clientHeight) / H) + OVERSCAN);
+    const frag = document.createDocumentFragment();
+    for (let i = first; i < last; i++) {
+      const r = rows[i], el = document.createElement('div');
+      el.className = 'vrow' + (selected === i ? ' sel' : ''); el.setAttribute('role', 'listitem'); el.style.top = i * H + 'px';
+      el.innerHTML = `<span class="muted">#${i + 1}</span><span></span><span></span><code></code><button>Select</button>`;
+      el.children[1].textContent = r.name; el.children[2].textContent = r.city; el.children[3].textContent = r.sku;
+      el.querySelector('button').onclick = async () => {
+        selected = i; render();
+        document.getElementById('selected').textContent = `Selected: ${r.sku}`;
+        await bench.submit('virtual-list', { index: i, sku: r.sku });
+      };
+      frag.appendChild(el);
+    }
+    spacer.replaceChildren(frag);
+  }
+  vp.addEventListener('scroll', render, { passive: true });
+  render();
+</script></body></html>

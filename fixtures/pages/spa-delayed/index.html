@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Analytics - Acme Portal</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script>
+<style> nav a { margin-right: 14px; } nav a.active { font-weight: 700; } .skel { height: 14px; background: #e8ebf0; border-radius: 4px; width: 60%; } </style></head>
+<body><header class="bar"><strong>Acme Analytics</strong>
+  <nav id="nav"><a href="/spa-delayed/" data-route="home">Home</a><a href="/spa-delayed/reports" data-route="reports">Reports</a><a href="/spa-delayed/settings" data-route="settings">Settings</a></nav></header>
+<main class="wrap" id="app"></main>
+<script>
+  // Client-side router: pushState navigation, data fetched with a 1.5-3s server delay.
+  const app = document.getElementById('app');
+  const routeOf = (p) => (p.replace(/\/+$/, '').split('/')[2] || 'home');
+  let token = 0;
+  function skeleton(title) {
+    app.innerHTML = `<h1>${title}</h1><div class="card" aria-busy="true"><div class="spinner" role="status" aria-label="Loading"></div>
+      <table><tbody>${'<tr><td><div class="skel"></div></td><td><button disabled>Generate</button></td></tr>'.repeat(4)}</tbody></table></div>`;
+  }
+  async function show(route) {
+    const my = ++token;
+    document.querySelectorAll('#nav a').forEach((a) => a.classList.toggle('active', a.dataset.route === route));
+    if (route === 'home') { app.innerHTML = '<h1>Welcome</h1><div class="card"><p>Pick a section from the navigation bar.</p></div>'; return; }
+    skeleton(route === 'reports' ? 'Reports' : 'Settings');
+    const data = await fetch('/api/spa-data?route=' + route).then((r) => r.json());
+    if (my !== token) return;
+    if (route === 'settings') { app.innerHTML = `<h1>Settings</h1><div class="card"><p>Theme: ${data.settings.theme}</p><p>Locale: ${data.settings.locale}</p></div>`; return; }
+    app.innerHTML = '<h1>Reports</h1><div class="card"><table><thead><tr><th>Report</th><th>Owner</th><th></th></tr></thead><tbody></tbody></table></div><p id="out" class="muted"></p>';
+    const tb = app.querySelector('tbody');
+    for (const r of data.reports) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = '<td></td><td></td><td><button>Generate</button></td>';
+      tr.children[0].textContent = r.title; tr.children[1].textContent = r.owner;
+      tr.querySelector('button').onclick = async () => {
+        await bench.submit('spa-delayed', { route: location.pathname, reportId: r.id, loadedAfterMs: data.delay });
+        app.querySelector('#out').textContent = `Report "${r.title}" is being generated.`;
+      };
+      tb.appendChild(tr);
+    }
+  }
+  document.getElementById('nav').addEventListener('click', (e) => {
+    const a = e.target.closest('a'); if (!a) return;
+    e.preventDefault(); history.pushState({}, '', a.getAttribute('href')); show(a.dataset.route);
+  });
+  addEventListener('popstate', () => show(routeOf(location.pathname)));
+  show(routeOf(location.pathname));
+</script></body></html>

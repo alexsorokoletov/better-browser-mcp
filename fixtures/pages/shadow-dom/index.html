@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Preferences - Acme Portal</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script></head>
+<body><header class="bar"><strong>Acme Portal</strong><span>Preferences</span></header>
+<main class="wrap"><prefs-app></prefs-app></main>
+<script>
+  // Three levels of open shadow roots: prefs-app > prefs-card > fancy-select.
+  const css = `:host{display:block;font:15px system-ui,sans-serif} .card{background:#fff;border:1px solid #e3e6ea;border-radius:10px;padding:18px;margin:12px 0}
+    label{display:block;font-weight:500;margin:10px 0 4px} input{width:100%;padding:8px;border:1px solid #c9ced6;border-radius:6px;font:inherit}
+    button{font:inherit;padding:8px 16px;border-radius:6px;border:1px solid #2f6fed;background:#2f6fed;color:#fff;cursor:pointer}`;
+
+  class FancySelect extends HTMLElement {
+    constructor() {
+      super();
+      const r = this.attachShadow({ mode: 'open' });
+      r.innerHTML = `<style>${css} .trigger{width:100%;text-align:left;background:#fff;color:#1d2330;border-color:#c9ced6}
+        [role=listbox]{display:none;border:1px solid #c9ced6;border-radius:6px;margin-top:4px;background:#fff}
+        :host([open]) [role=listbox]{display:block} [role=option]{padding:8px 10px;cursor:pointer} [role=option]:hover{background:#eef3ff}
+        [aria-selected=true]{font-weight:600}</style>
+        <div class="trigger" role="combobox" tabindex="0" aria-haspopup="listbox" aria-expanded="false"><span class="val">Daily</span> &#9662;</div>
+        <div role="listbox"></div>`;
+      this.value = 'daily';
+      const lb = r.querySelector('[role=listbox]'), trig = r.querySelector('.trigger');
+      trig.style.cssText = 'padding:8px 10px;border:1px solid #c9ced6;border-radius:6px;cursor:pointer';
+      for (const [v, t] of [['never', 'Never'], ['daily', 'Daily'], ['weekly', 'Weekly'], ['monthly', 'Monthly']]) {
+        const o = document.createElement('div');
+        o.setAttribute('role', 'option'); o.dataset.value = v; o.textContent = t; o.setAttribute('aria-selected', v === this.value);
+        o.addEventListener('click', () => {
+          this.value = v; r.querySelector('.val').textContent = t;
+          lb.querySelectorAll('[role=option]').forEach((x) => x.setAttribute('aria-selected', x === o));
+          this.toggle(false);
+        });
+        lb.appendChild(o);
+      }
+      trig.addEventListener('click', () => this.toggle(!this.hasAttribute('open')));
+      this._trig = trig;
+    }
+    toggle(on) { this.toggleAttribute('open', on); this._trig.setAttribute('aria-expanded', on); }
+  }
+  class PrefsCard extends HTMLElement {
+    constructor() {
+      super();
+      const r = this.attachShadow({ mode: 'open' });
+      r.innerHTML = `<style>${css}</style><div class="card">
+        <label for="dn">Display name</label><input id="dn" type="text" value="">
+        <label>Notification frequency</label><fancy-select></fancy-select>
+        <p><button id="save">Save</button> <span id="st"></span></p></div>`;
+      r.getElementById('save').addEventListener('click', async () => {
+        await bench.submit('shadow-dom', { displayName: r.getElementById('dn').value, frequency: r.querySelector('fancy-select').value });
+        r.getElementById('st').textContent = 'Saved';
+      });
+    }
+  }
+  class PrefsApp extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' }).innerHTML = `<style>${css}</style><h1 style="font-size:22px">Notification preferences</h1><prefs-card></prefs-card>`;
+    }
+  }
+  customElements.define('fancy-select', FancySelect);
+  customElements.define('prefs-card', PrefsCard);
+  customElements.define('prefs-app', PrefsApp);
+</script></body></html>

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+bench/results/raw/
+*.log
+
+# research, design notes, private bench: live in better-browser-mcp-private
+research/
+node_modules
+
+# session-derived data: local only, never commit
+local/
+bench/real/results/
+bench/private

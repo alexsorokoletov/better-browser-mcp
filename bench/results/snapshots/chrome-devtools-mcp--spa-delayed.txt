@@ -1,0 +1,14 @@
+Successfully navigated to http://127.0.0.1:4777/spa-delayed/.
+## Pages
+1: Analytics - Acme Portal (http://127.0.0.1:4777/spa-delayed/) [selected]
+## Latest page snapshot
+uid=8_0 RootWebArea "Analytics - Acme Portal" url="http://127.0.0.1:4777/spa-delayed/"
+  uid=8_1 banner
+    uid=8_2 "Acme Analytics"
+    uid=8_3 navigation
+      uid=8_4 link "Home" url="http://127.0.0.1:4777/spa-delayed/"
+      uid=8_6 link "Reports" url="http://127.0.0.1:4777/spa-delayed/reports"
+      uid=8_8 link "Settings" url="http://127.0.0.1:4777/spa-delayed/settings"
+  uid=8_10 main
+    uid=8_11 heading "Welcome" level="1"
+    uid=8_12 "Pick a section from the navigation bar."

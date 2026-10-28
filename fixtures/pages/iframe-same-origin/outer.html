@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/shared/style.css"></head>
+<body style="background:#fbfbfd"><div style="padding:12px">
+  <h2>Approval widget</h2>
+  <p class="muted">Secured by PaySafe</p>
+  <button class="danger" id="reject">Reject</button>
+  <iframe id="inner" src="inner.html" title="Confirm payout" style="width:100%;height:200px;border:1px dashed #aab;margin-top:12px"></iframe>
+</div>
+<script>
+  document.getElementById('reject').onclick = () =>
+    parent.bench.submit('iframe-same-origin', { action: 'reject', frame: 'outer', depth: 1 }).then(() => parent.bench.toast('Payout rejected'));
+</script></body></html>

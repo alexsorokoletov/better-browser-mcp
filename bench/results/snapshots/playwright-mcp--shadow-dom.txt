@@ -1,0 +1,29 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/shadow-dom/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/shadow-dom/
+- Page Title: Preferences - Acme Portal
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-49-822Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/shadow-dom/
+- Page Title: Preferences - Acme Portal
+### Snapshot
+```yaml
+- generic [active] [ref=f7e1]:
+  - banner [ref=f7e2]:
+    - strong [ref=f7e3]: Acme Portal
+    - generic [ref=f7e4]: Preferences
+  - main [ref=f7e5]:
+    - generic [ref=f7e6]:
+      - heading "Notification preferences" [level=1] [ref=f7e7]
+      - generic [ref=f7e9]:
+        - generic [ref=f7e10]: Display name
+        - textbox "Display name" [ref=f7e11]
+        - generic [ref=f7e12]: Notification frequency
+        - combobox [ref=f7e14] [cursor=pointer]: Daily ▾
+        - paragraph [ref=f7e15]:
+          - button "Save" [ref=f7e16] [cursor=pointer]
+```

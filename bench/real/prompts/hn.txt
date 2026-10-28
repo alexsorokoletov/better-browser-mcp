@@ -1,0 +1,5 @@
+Use the browser. Open https://news.ycombinator.com/ .
+Report the #1 story on the front page: its title, points and author. Then open its comments page and report the 3 top-level comments shown first: each comment's author and its first sentence.
+Do not upvote, flag, comment or log in.
+Finish with only this JSON block:
+{"title": "...", "points": 0, "author": "...", "item_id": 0, "comments": [{"author": "...", "first_sentence": "..."}]}

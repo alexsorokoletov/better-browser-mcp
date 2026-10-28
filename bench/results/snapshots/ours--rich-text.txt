@@ -1,0 +1,10 @@
+[t1] http://127.0.0.1:4777/rich-text/ "New post - Acme Blog" scroll 0/9
+Acme Blog
+main:
+ # New post
+ toolbar "Formatting":
+  button "Bold" [e1]
+  button "Italic" [e2]
+  button "Underline" [e3]
+ textbox "Post body" [e4] = "Start writing here..."
+ button "Publish" [e5]

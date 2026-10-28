@@ -1,0 +1,12 @@
+[t1] http://127.0.0.1:4777/drag-reorder/ "Release checklist - Acme Board" scroll 0/77
+Acme Board
+main:
+ # Release checklist
+ Drag steps to reorder.
+ list:
+  draggable "Deploy" [e1]
+  draggable "Write spec" [e2]
+  draggable "Monitor" [e3]
+  draggable "Retrospective" [e4]
+  draggable "Review PR" [e5]
+ button "Save order" [e6]

@@ -1,0 +1,8 @@
+[t1] http://127.0.0.1:4777/file-upload/ "Upload documents - Acme Portal" scroll 0/0
+Acme Portal
+Documents
+main:
+ # Upload documents
+ file "Choose file" [e1]
+ button "Upload" [e2] disabled
+ Or drop files here

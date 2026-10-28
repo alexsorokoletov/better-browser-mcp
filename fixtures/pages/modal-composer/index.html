@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Modal composer</title>
+<style>
+  #backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center}
+  #backdrop.open{display:flex}
+  [role=dialog]{background:#fff;padding:16px;width:520px;max-height:80vh;overflow:auto}
+  textarea{display:block;width:100%;margin:6px 0}
+</style></head>
+<body>
+  <nav><a href="#">Home</a> <a href="#">Search</a> <a href="#">Profile</a></nav>
+  <button id="new" onclick="openComposer()">New thread</button>
+  <ul id="feed"></ul>
+  <div id="backdrop">
+    <div role="dialog" aria-modal="true" aria-label="New thread">
+      <h2>New thread</h2>
+      <div id="posts"></div>
+      <button onclick="addPost()">Add to thread</button>
+      <button onclick="closeComposer()">Cancel</button>
+    </div>
+  </div>
+<script>
+  // The feed behind the modal keeps changing, like a real social feed.
+  let n = 0;
+  const feed = document.getElementById('feed');
+  const tick = () => { for (let i = 0; i < 3; i++) { const li = document.createElement('li'); li.textContent = `Feed item ${++n}: someone posted something`; feed.prepend(li); } };
+  for (let i = 0; i < 20; i++) tick();
+  setInterval(tick, 300);
+  function addPost() {
+    const k = document.querySelectorAll('#posts textarea').length + 1;
+    const t = document.createElement('textarea'); t.setAttribute('aria-label', `Post ${k} text`);
+    document.getElementById('posts').append(t);
+  }
+  function openComposer() { document.getElementById('backdrop').classList.add('open'); if (!document.querySelector('#posts textarea')) addPost(); }
+  function closeComposer() { document.getElementById('backdrop').classList.remove('open'); }
+</script>
+</body></html>

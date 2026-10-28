@@ -1,0 +1,9 @@
+[t1] http://127.0.0.1:4777/login-form/ "Sign in - Acme Portal" scroll 0/28
+Acme Portal
+main:
+ form:
+  # Sign in
+  textbox "Username" [e1]
+  textbox "Password" [e2]
+  checkbox "Keep me signed in" [e3]
+  button "Sign in" [e4] disabled

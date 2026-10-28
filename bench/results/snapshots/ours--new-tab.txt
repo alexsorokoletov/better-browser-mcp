@@ -1,0 +1,8 @@
+[t1] http://127.0.0.1:4777/new-tab/ "Billing - Acme Portal" scroll 0/0
+Acme Portal
+Billing
+main:
+ # Billing
+ Your plan is managed in the billing portal.
+ link "Open billing portal" [e1] -> /new-tab/portal.html?t=0jsm7ibn newtab
+ Portal not opened yet.

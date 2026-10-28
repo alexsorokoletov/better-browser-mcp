@@ -1,0 +1,4 @@
+Use the browser. On https://www.amazon.com/ find one USB-C hub that costs under $40, has a rating of 4.0 stars or more, and has at least 4 ports, and add exactly one of it to the cart.
+Never click Buy Now, Proceed to checkout or Place your order. Do not change anything else in the cart.
+Finish with only this JSON block:
+{"title": "...", "price_usd": 0.0, "url": "the product page URL", "asin": "...", "added_to_cart": true}

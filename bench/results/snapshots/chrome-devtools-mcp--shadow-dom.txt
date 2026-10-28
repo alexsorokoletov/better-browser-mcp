@@ -1,0 +1,15 @@
+Successfully navigated to http://127.0.0.1:4777/shadow-dom/.
+## Pages
+1: Preferences - Acme Portal (http://127.0.0.1:4777/shadow-dom/) [selected]
+## Latest page snapshot
+uid=6_0 RootWebArea "Preferences - Acme Portal" url="http://127.0.0.1:4777/shadow-dom/"
+  uid=6_1 banner
+    uid=6_2 "Acme Portal"
+    uid=6_3 "Preferences"
+  uid=6_4 main
+    uid=6_5 heading "Notification preferences" level="1"
+    uid=6_6 "Display name"
+    uid=6_7 textbox "Display name"
+    uid=6_8 "Notification frequency"
+    uid=6_9 combobox expandable haspopup="listbox" value="Daily ▾"
+    uid=6_10 button "Save"

@@ -1,0 +1,39 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/dialogs/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/dialogs/
+- Page Title: Drafts - Acme Docs
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-50-262Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/dialogs/
+- Page Title: Drafts - Acme Docs
+### Snapshot
+```yaml
+- generic [active] [ref=f10e1]:
+  - banner [ref=f10e2]:
+    - strong [ref=f10e3]: Acme Docs
+    - generic [ref=f10e4]: Drafts
+  - main [ref=f10e5]:
+    - heading "Drafts" [level=1] [ref=f10e6]
+    - table [ref=f10e8]:
+      - rowgroup [ref=f10e9]:
+        - row [ref=f10e10]:
+          - columnheader "Name" [ref=f10e11]
+          - columnheader "Updated" [ref=f10e12]
+          - columnheader [ref=f10e13]
+      - rowgroup [ref=f10e14]:
+        - row [ref=f10e15]:
+          - cell "Quarterly plan" [ref=f10e16]
+          - cell "2026-09-30" [ref=f10e17]
+          - cell [ref=f10e18]:
+            - button "Delete" [ref=f10e19] [cursor=pointer]
+        - row [ref=f10e20]:
+          - cell "Hiring notes" [ref=f10e21]
+          - cell "2026-09-12" [ref=f10e22]
+          - cell [ref=f10e23]:
+            - button "Delete" [disabled] [ref=f10e24]
+    - paragraph
+```

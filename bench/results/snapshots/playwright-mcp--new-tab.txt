@@ -1,0 +1,27 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/new-tab/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/new-tab/
+- Page Title: Billing - Acme Portal
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-50-482Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/new-tab/
+- Page Title: Billing - Acme Portal
+### Snapshot
+```yaml
+- generic [active] [ref=f11e1]:
+  - banner [ref=f11e2]:
+    - strong [ref=f11e3]: Acme Portal
+    - generic [ref=f11e4]: Billing
+  - main [ref=f11e5]:
+    - heading "Billing" [level=1] [ref=f11e6]
+    - generic [ref=f11e7]:
+      - paragraph [ref=f11e8]: Your plan is managed in the billing portal.
+      - paragraph [ref=f11e9]:
+        - link "Open billing portal" [ref=f11e10] [cursor=pointer]:
+          - /url: portal.html?t=zw888ers
+      - paragraph [ref=f11e11]: Portal not opened yet.
+```

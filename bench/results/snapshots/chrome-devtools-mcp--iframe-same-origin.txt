@@ -1,0 +1,26 @@
+Successfully navigated to http://127.0.0.1:4777/iframe-same-origin/.
+## Pages
+1: Payments - Acme Portal (http://127.0.0.1:4777/iframe-same-origin/) [selected]
+## Latest page snapshot
+uid=4_0 RootWebArea "Payments - Acme Portal" url="http://127.0.0.1:4777/iframe-same-origin/"
+  uid=4_1 banner
+    uid=4_2 "Acme Portal"
+    uid=4_3 "Payments"
+  uid=4_4 main
+    uid=4_5 heading "Pending payout" level="1"
+    uid=4_6 "Payout "
+    uid=4_7 "#PO-5521"
+    uid=4_8 " for "
+    uid=4_9 "$1,240.00"
+    uid=4_10 " needs approval."
+    uid=4_11 button "Approve"
+    uid=4_12 Iframe "Approval widget"
+      uid=4_13 RootWebArea url="http://127.0.0.1:4777/iframe-same-origin/outer.html"
+        uid=4_14 heading "Approval widget" level="2"
+        uid=4_15 "Secured by PaySafe"
+        uid=4_16 button "Reject"
+        uid=4_17 Iframe "Confirm payout"
+          uid=4_18 RootWebArea url="http://127.0.0.1:4777/iframe-same-origin/inner.html"
+            uid=4_19 "Approval note"
+            uid=4_20 textbox "Approval note"
+            uid=4_21 button "Approve payout"

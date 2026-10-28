@@ -1,0 +1,45 @@
+{
+  "name": "better-browser-mcp",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "bin": {
+    "better-browser-mcp": "src/server.ts"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-force-exit --test-timeout=60000 'test/unit/*.test.mjs' 'test/e2e/*.test.mjs'",
+    "test:bun": "bun test --timeout 60000 test/unit/*.test.mjs test/e2e/*.test.mjs",
+    "start": "node src/server.ts",
+    "start:bun": "bun src/server.ts",
+    "test:extension": "BBM_TEST_MODE=extension node --test --test-force-exit --test-timeout=40000 test/e2e/fixtures.test.mjs",
+    "test:extension:bun": "BBM_TEST_MODE=extension bun test --timeout 40000 test/e2e/fixtures.test.mjs",
+    "bench:runtime": "node scripts/bench-runtime.mjs",
+    "typecheck": "tsc -p . && tsc -p tsconfig.page.json && tsc -p extension",
+    "build:extension": "node scripts/build-extension.ts",
+    "pack:extension": "node scripts/build-extension.ts --zip",
+    "lint": "oxlint --type-aware --deny-warnings src scripts extension/src test",
+    "fmt": "oxfmt src scripts extension/src test",
+    "fmt:check": "oxfmt --check src scripts extension/src test",
+    "coverage": "node --test --test-force-exit --test-timeout=60000 --experimental-test-coverage --test-coverage-include='src/**' 'test/unit/*.test.mjs' 'test/e2e/*.test.mjs'"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "ws": "^8.22.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tsrs/wasm": "0.18.0-ts7.1.0-dev.20260929",
+    "@types/chrome": "^0.3.5",
+    "@types/node": "^26.6.5",
+    "@types/ws": "^8.18.2",
+    "knip": "6.42.1",
+    "lefthook": "2.2.2",
+    "oxfmt": "0.74.0",
+    "oxlint": "1.89.0",
+    "oxlint-tsgolint": "7.0.2004",
+    "typescript": "^7.0.2"
+  }
+}

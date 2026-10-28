@@ -1,0 +1,254 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/data-extraction/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/data-extraction/
+- Page Title: Orders report - Acme Portal
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-51-314Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/data-extraction/
+- Page Title: Orders report - Acme Portal
+### Snapshot
+```yaml
+- generic [active] [ref=f15e1]:
+  - banner [ref=f15e2]:
+    - strong [ref=f15e3]: Acme Portal
+    - generic [ref=f15e4]: Reports
+  - main [ref=f15e5]:
+    - heading "Orders 2026" [level=1] [ref=f15e6]
+    - generic [ref=f15e7]:
+      - table [ref=f15e8]:
+        - rowgroup [ref=f15e9]:
+          - row [ref=f15e10]:
+            - columnheader "Order" [ref=f15e11] [cursor=pointer]
+            - columnheader "Date" [ref=f15e12] [cursor=pointer]
+            - columnheader "Customer" [ref=f15e13] [cursor=pointer]
+            - columnheader "Region" [ref=f15e14] [cursor=pointer]
+            - columnheader "Category" [ref=f15e15] [cursor=pointer]
+            - columnheader "Status" [ref=f15e16] [cursor=pointer]
+            - columnheader "Amount" [ref=f15e17] [cursor=pointer]
+        - rowgroup [ref=f15e18]:
+          - row [ref=f15e19]:
+            - cell "ORD-10027" [ref=f15e20]
+            - cell "2026-01-01" [ref=f15e21]
+            - cell "Lena Okafor" [ref=f15e22]
+            - cell "Central" [ref=f15e23]
+            - cell "Services" [ref=f15e24]
+            - cell "Refunded" [ref=f15e25]
+            - cell "$599.03" [ref=f15e26]
+          - row [ref=f15e27]:
+            - cell "ORD-10367" [ref=f15e28]
+            - cell "2026-01-03" [ref=f15e29]
+            - cell "Farah Garcia" [ref=f15e30]
+            - cell "East" [ref=f15e31]
+            - cell "Services" [ref=f15e32]
+            - cell "Pending" [ref=f15e33]
+            - cell "$2,368.76" [ref=f15e34]
+          - row [ref=f15e35]:
+            - cell "ORD-10124" [ref=f15e36]
+            - cell "2026-01-04" [ref=f15e37]
+            - cell "Farah Tanaka" [ref=f15e38]
+            - cell "North" [ref=f15e39]
+            - cell "Services" [ref=f15e40]
+            - cell "Pending" [ref=f15e41]
+            - cell "$726.92" [ref=f15e42]
+          - row [ref=f15e43]:
+            - cell "ORD-10191" [ref=f15e44]
+            - cell "2026-01-04" [ref=f15e45]
+            - cell "Chloe Fischer" [ref=f15e46]
+            - cell "Central" [ref=f15e47]
+            - cell "Hardware" [ref=f15e48]
+            - cell "Paid" [ref=f15e49]
+            - cell "$630.52" [ref=f15e50]
+          - row [ref=f15e51]:
+            - cell "ORD-10189" [ref=f15e52]
+            - cell "2026-01-05" [ref=f15e53]
+            - cell "Uma Baker" [ref=f15e54]
+            - cell "West" [ref=f15e55]
+            - cell "Training" [ref=f15e56]
+            - cell "Refunded" [ref=f15e57]
+            - cell "$1,102.14" [ref=f15e58]
+          - row [ref=f15e59]:
+            - cell "ORD-10295" [ref=f15e60]
+            - cell "2026-01-06" [ref=f15e61]
+            - cell "Lena Weber" [ref=f15e62]
+            - cell "South" [ref=f15e63]
+            - cell "Training" [ref=f15e64]
+            - cell "Paid" [ref=f15e65]
+            - cell "$986.96" [ref=f15e66]
+          - row [ref=f15e67]:
+            - cell "ORD-10452" [ref=f15e68]
+            - cell "2026-01-06" [ref=f15e69]
+            - cell "Nora Costa" [ref=f15e70]
+            - cell "North" [ref=f15e71]
+            - cell "Software" [ref=f15e72]
+            - cell "Paid" [ref=f15e73]
+            - cell "$1,440.63" [ref=f15e74]
+          - row [ref=f15e75]:
+            - cell "ORD-10488" [ref=f15e76]
+            - cell "2026-01-06" [ref=f15e77]
+            - cell "Jun Petrov" [ref=f15e78]
+            - cell "West" [ref=f15e79]
+            - cell "Training" [ref=f15e80]
+            - cell "Refunded" [ref=f15e81]
+            - cell "$318.20" [ref=f15e82]
+          - row [ref=f15e83]:
+            - cell "ORD-10039" [ref=f15e84]
+            - cell "2026-01-09" [ref=f15e85]
+            - cell "Quinn Kowalski" [ref=f15e86]
+            - cell "South" [ref=f15e87]
+            - cell "Services" [ref=f15e88]
+            - cell "Pending" [ref=f15e89]
+            - cell "$1,904.83" [ref=f15e90]
+          - row [ref=f15e91]:
+            - cell "ORD-10112" [ref=f15e92]
+            - cell "2026-01-09" [ref=f15e93]
+            - cell "Ivan Garcia" [ref=f15e94]
+            - cell "East" [ref=f15e95]
+            - cell "Software" [ref=f15e96]
+            - cell "Refunded" [ref=f15e97]
+            - cell "$2,166.30" [ref=f15e98]
+          - row [ref=f15e99]:
+            - cell "ORD-10173" [ref=f15e100]
+            - cell "2026-01-12" [ref=f15e101]
+            - cell "Mateo Weber" [ref=f15e102]
+            - cell "East" [ref=f15e103]
+            - cell "Hardware" [ref=f15e104]
+            - cell "Pending" [ref=f15e105]
+            - cell "$2,175.46" [ref=f15e106]
+          - row [ref=f15e107]:
+            - cell "ORD-10351" [ref=f15e108]
+            - cell "2026-01-12" [ref=f15e109]
+            - cell "Sven Tanaka" [ref=f15e110]
+            - cell "Central" [ref=f15e111]
+            - cell "Hardware" [ref=f15e112]
+            - cell "Refunded" [ref=f15e113]
+            - cell "$337.98" [ref=f15e114]
+          - row [ref=f15e115]:
+            - cell "ORD-10214" [ref=f15e116]
+            - cell "2026-01-13" [ref=f15e117]
+            - cell "Wren Silva" [ref=f15e118]
+            - cell "Central" [ref=f15e119]
+            - cell "Software" [ref=f15e120]
+            - cell "Pending" [ref=f15e121]
+            - cell "$345.20" [ref=f15e122]
+          - row [ref=f15e123]:
+            - cell "ORD-10244" [ref=f15e124]
+            - cell "2026-01-14" [ref=f15e125]
+            - cell "Quinn Fischer" [ref=f15e126]
+            - cell "North" [ref=f15e127]
+            - cell "Software" [ref=f15e128]
+            - cell "Pending" [ref=f15e129]
+            - cell "$2,410.51" [ref=f15e130]
+          - row [ref=f15e131]:
+            - cell "ORD-10299" [ref=f15e132]
+            - cell "2026-01-14" [ref=f15e133]
+            - cell "Nora Lopez" [ref=f15e134]
+            - cell "North" [ref=f15e135]
+            - cell "Hardware" [ref=f15e136]
+            - cell "Pending" [ref=f15e137]
+            - cell "$1,659.25" [ref=f15e138]
+          - row [ref=f15e139]:
+            - cell "ORD-10330" [ref=f15e140]
+            - cell "2026-01-14" [ref=f15e141]
+            - cell "Priya Eriksen" [ref=f15e142]
+            - cell "North" [ref=f15e143]
+            - cell "Training" [ref=f15e144]
+            - cell "Pending" [ref=f15e145]
+            - cell "$1,023.48" [ref=f15e146]
+          - row [ref=f15e147]:
+            - cell "ORD-10341" [ref=f15e148]
+            - cell "2026-01-14" [ref=f15e149]
+            - cell "Ava Novak" [ref=f15e150]
+            - cell "South" [ref=f15e151]
+            - cell "Services" [ref=f15e152]
+            - cell "Refunded" [ref=f15e153]
+            - cell "$2,330.62" [ref=f15e154]
+          - row [ref=f15e155]:
+            - cell "ORD-10397" [ref=f15e156]
+            - cell "2026-01-14" [ref=f15e157]
+            - cell "Uma Baker" [ref=f15e158]
+            - cell "West" [ref=f15e159]
+            - cell "Hardware" [ref=f15e160]
+            - cell "Pending" [ref=f15e161]
+            - cell "$1,294.29" [ref=f15e162]
+          - row [ref=f15e163]:
+            - cell "ORD-10004" [ref=f15e164]
+            - cell "2026-01-15" [ref=f15e165]
+            - cell "Vik Rossi" [ref=f15e166]
+            - cell "Central" [ref=f15e167]
+            - cell "Services" [ref=f15e168]
+            - cell "Pending" [ref=f15e169]
+            - cell "$1,973.19" [ref=f15e170]
+          - row [ref=f15e171]:
+            - cell "ORD-10067" [ref=f15e172]
+            - cell "2026-01-16" [ref=f15e173]
+            - cell "Elena Fischer" [ref=f15e174]
+            - cell "West" [ref=f15e175]
+            - cell "Services" [ref=f15e176]
+            - cell "Pending" [ref=f15e177]
+            - cell "$1,330.84" [ref=f15e178]
+          - row [ref=f15e179]:
+            - cell "ORD-10316" [ref=f15e180]
+            - cell "2026-01-16" [ref=f15e181]
+            - cell "Ivan Dubois" [ref=f15e182]
+            - cell "South" [ref=f15e183]
+            - cell "Hardware" [ref=f15e184]
+            - cell "Pending" [ref=f15e185]
+            - cell "$1,522.15" [ref=f15e186]
+          - row [ref=f15e187]:
+            - cell "ORD-10349" [ref=f15e188]
+            - cell "2026-01-16" [ref=f15e189]
+            - cell "Jun Baker" [ref=f15e190]
+            - cell "South" [ref=f15e191]
+            - cell "Hardware" [ref=f15e192]
+            - cell "Pending" [ref=f15e193]
+            - cell "$275.61" [ref=f15e194]
+          - row [ref=f15e195]:
+            - cell "ORD-10356" [ref=f15e196]
+            - cell "2026-01-16" [ref=f15e197]
+            - cell "Gus Adams" [ref=f15e198]
+            - cell "West" [ref=f15e199]
+            - cell "Software" [ref=f15e200]
+            - cell "Paid" [ref=f15e201]
+            - cell "$1,697.21" [ref=f15e202]
+          - row [ref=f15e203]:
+            - cell "ORD-10435" [ref=f15e204]
+            - cell "2026-01-17" [ref=f15e205]
+            - cell "Ben Petrov" [ref=f15e206]
+            - cell "East" [ref=f15e207]
+            - cell "Training" [ref=f15e208]
+            - cell "Pending" [ref=f15e209]
+            - cell "$1,216.69" [ref=f15e210]
+          - row [ref=f15e211]:
+            - cell "ORD-10161" [ref=f15e212]
+            - cell "2026-01-18" [ref=f15e213]
+            - cell "Yara Dubois" [ref=f15e214]
+            - cell "West" [ref=f15e215]
+            - cell "Hardware" [ref=f15e216]
+            - cell "Pending" [ref=f15e217]
+            - cell "$336.62" [ref=f15e218]
+      - generic [ref=f15e219]:
+        - button "Previous" [ref=f15e220] [cursor=pointer]
+        - generic [ref=f15e221]: Page 1 of 20
+        - button "Next" [ref=f15e222] [cursor=pointer]
+        - generic [ref=f15e223]:
+          - text: Rows per page
+          - combobox "Rows per page" [ref=f15e224]:
+            - option "10"
+            - option "25" [selected]
+            - option "50"
+    - generic [ref=f15e225]:
+      - heading "Answer" [level=2] [ref=f15e226]
+      - generic [ref=f15e227]:
+        - generic [ref=f15e228]:
+          - generic [ref=f15e229]: Number of matching orders
+          - textbox "Number of matching orders" [ref=f15e230]
+        - generic [ref=f15e231]:
+          - generic [ref=f15e232]: Total amount (USD)
+          - textbox "Total amount (USD)" [ref=f15e233]
+      - paragraph [ref=f15e234]:
+        - button "Submit answer" [ref=f15e235] [cursor=pointer]
+```

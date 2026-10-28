@@ -1,0 +1,9 @@
+[t1] http://127.0.0.1:4777/dialogs/ "Drafts - Acme Docs" scroll 0/0
+Acme Docs
+Drafts
+main:
+ # Drafts
+ table:
+  | Name | Updated |  |
+  | Quarterly plan | 2026-09-30 | button "Delete" [e1] |
+  | Hiring notes | 2026-09-12 | button "Delete" [e2] disabled |

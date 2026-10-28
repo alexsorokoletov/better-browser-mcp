@@ -1,0 +1,30 @@
+[t1] http://127.0.0.1:4777/virtual-list/ "Inventory - Acme Portal" scroll 0/304
+Acme Portal
+Inventory
+main:
+ # Inventory items
+ 5,000 items.
+ list "Inventory" [e1] scrollable 0/179442:
+  - #1 Ben Haddad Lyon AMX-2702 button "Select" [e2]
+  - #2 Ben Jensen Lisbon TKF-5610 button "Select" [e3]
+  - #3 Mateo Jensen Lagos CQK-2808 button "Select" [e4]
+  - #4 Ivan Silva Austin QUR-4049 button "Select" [e5]
+  - #5 Rosa Silva Austin STM-7045 button "Select" [e6]
+  - #6 Quinn Weber Berlin HMW-7177 button "Select" [e7]
+  - #7 Quinn Fischer Porto WCP-7491 button "Select" [e8]
+  - #8 Vik Petrov Lyon DTJ-3810 button "Select" [e9]
+  - #9 Wren Weber Lagos VYY-7790 button "Select" [e10]
+  - #10 Wren Petrov Lagos BTD-7315 button "Select" [e11]
+  - #11 Chloe Baker Austin GHU-1830 button "Select" [e12]
+  - #12 Ben Kowalski Krakow VTW-2421 button "Select" [e13]
+  - #13 Wren Moreau Porto JWT-6152 button "Select" [e14]
+  - #14 Gus Tanaka Austin YZZ-8548 button "Select" [e15]
+  - #15 Farah Fischer Denver URU-0212 button "Select" [e16]
+  - #16 Yara Jensen Porto MBK-2842 button "Select" [e17]
+  - #17 Elena Rossi Lyon SZR-1806 button "Select" [e18]
+  - #18 Wren Weber Lyon NCK-1322 button "Select" [e19]
+  - #19 Ava Fischer Austin GBQ-4378 button "Select" [e20]
+  - #20 Yara Haddad Lyon ATJ-0070 button "Select" [e21]
+  - #21 Jun Novak Berlin HNW-8877 button "Select" [e22]
+  - #22 Wren Silva Berlin UZD-5408 button "Select" [e23]
+  - #23 Chloe Costa Lyon BFT-9918 button "Select" [e24]

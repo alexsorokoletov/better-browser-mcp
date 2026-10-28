@@ -1,0 +1,16 @@
+Successfully navigated to http://127.0.0.1:4777/rich-text/.
+## Pages
+1: New post - Acme Blog (http://127.0.0.1:4777/rich-text/) [selected]
+## Latest page snapshot
+uid=17_0 RootWebArea "New post - Acme Blog" url="http://127.0.0.1:4777/rich-text/"
+  uid=17_1 banner
+    uid=17_2 "Acme Blog"
+  uid=17_3 main
+    uid=17_4 heading "New post" level="1"
+    uid=17_5 button "Bold"
+    uid=17_6 button "Italic"
+    uid=17_7 button "Underline"
+    uid=17_8 textbox "Post body" multiline value="Start writing here..."
+      uid=17_9 paragraph
+        uid=17_10 "Start writing here..."
+    uid=17_11 button "Publish"

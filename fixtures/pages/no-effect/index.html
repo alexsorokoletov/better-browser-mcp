@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>No effect</title></head>
+<body>
+  <h1>Cart</h1>
+  <ul id="items"><li id="hub">USB-C hub <form onsubmit="return false"><input type="submit" value="Delete" aria-label="Delete USB-C hub"
+    onclick="if (event.detail === 0) document.getElementById('hub').remove()"></form></li></ul>
+  <!-- like Amazon's cart Delete in L012: ignores the mouse click, works from the keyboard -->
+  <form onsubmit="return false"><button id="dead">Does nothing</button></form>
+  <button id="ok" onclick="document.getElementById('msg').textContent='saved'">Save</button>
+  <p id="msg"></p>
+</body></html>

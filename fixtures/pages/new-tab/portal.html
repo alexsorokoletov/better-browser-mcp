@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Billing portal - Acme</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script></head>
+<body><header class="bar"><strong>Acme Billing Portal</strong></header>
+<main class="wrap">
+  <h1>Upgrade plan</h1>
+  <div class="card"><p>Team plan, 12 seats, $240 / month.</p><button id="act">Activate plan</button> <span id="out"></span></div>
+</main>
+<script>
+  const token = new URLSearchParams(location.search).get('t');
+  const ch = new BroadcastChannel('bench-new-tab');
+  let originalAlive = false;
+  ch.onmessage = (e) => { if (e.data?.type === 'pong' && e.data.token === token) originalAlive = true; };
+  const ping = () => ch.postMessage({ type: 'ping', token });
+  ping();
+  document.getElementById('act').onclick = async () => {
+    ping();
+    await new Promise((r) => setTimeout(r, 300));
+    await bench.submit('new-tab', { action: 'activate', token, originalAlive, hasOpener: !!window.opener });
+    document.getElementById('out').textContent = 'Plan activated.';
+  };
+</script></body></html>

@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/shared/style.css"></head>
+<body style="background:#fffdf5"><div style="padding:12px">
+  <h2>CouponHub</h2>
+  <label for="code">Coupon code</label><input id="code" type="text" autocomplete="off">
+  <p><button id="apply">Apply coupon</button></p>
+  <p id="out" class="muted"></p>
+</div>
+<script>
+  // Served from the second origin (PORT+1); records to the main origin via CORS.
+  const topOrigin = new URLSearchParams(location.search).get('top') || '__MAIN_ORIGIN__';
+  document.getElementById('apply').onclick = async () => {
+    const code = document.getElementById('code').value;
+    await fetch(topOrigin + '/api/submit', { method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ task: 'iframe-cross-origin', data: { code, frameOrigin: location.origin, topOrigin } }) });
+    document.getElementById('out').textContent = 'Coupon submitted.';
+  };
+</script></body></html>

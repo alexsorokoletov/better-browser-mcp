@@ -1,0 +1,41 @@
+[t1] http://127.0.0.1:4777/long-form/ "Create account - Acme Portal" scroll 0/878
+Acme Portal
+Onboarding
+main:
+ # Create your account
+ form:
+  ## Personal details
+  textbox "First name" [e1] required
+  textbox "Last name" [e2] required
+  textbox "Email" [e3] required
+  textbox "Phone" [e4]
+  date "Date of birth" [e5] required
+  date "Preferred call time" [e6]
+  ## Address
+  textbox "Street address" [e7]
+  textbox "City" [e8]
+  textbox "Postal code" [e9]
+  combobox "Country" [e10] = "Select a country..." options: Select a country...|Australia|Canada|France|Germany|Ireland|Portugal|United Kingdom|United States required
+  ## Account
+  group "Account type":
+   Account type
+   radio "Personal" [e11] checked
+   radio "Business" [e12]
+   radio "Non-profit" [e13]
+  combobox "Plan" [e14] = "Free" options: Free|Pro - billed monthly|Pro - billed annually|Enterprise
+  spinbutton "Seats" [e15] = "1"
+  group "Interests":
+   Interests
+   checkbox "Analytics" [e16]
+   checkbox "Automation" [e17]
+   checkbox "Billing" [e18] checked
+   checkbox "Security" [e19]
+  group "Preferred contact method":
+   Preferred contact method
+   radio "Email" [e20] checked
+   radio "Phone" [e21]
+   radio "SMS" [e22]
+  textbox "About you" [e23]
+  checkbox "Send me the monthly newsletter" [e24] checked
+  checkbox "I accept the terms of service" [e25] required
+  button "Create account" [e26]

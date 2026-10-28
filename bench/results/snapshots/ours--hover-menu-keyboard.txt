@@ -1,0 +1,8 @@
+[t1] http://127.0.0.1:4777/hover-menu-keyboard/ "Settings - Acme Portal" scroll 0/0
+Acme Portal
+Account ▾
+main:
+ # Preferences
+ combobox "Time zone" [e1] collapsed
+ Selected: none
+ button "Save preferences" [e2]

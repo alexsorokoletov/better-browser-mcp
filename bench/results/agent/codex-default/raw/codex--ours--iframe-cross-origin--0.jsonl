@@ -1,0 +1,7 @@
+{"type":"thread.started","thread_id":"01a14447-e121-7200-9611-af4a40a0fbbd"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’ll open the checkout page and apply the coupon in the partner widget."}}
+{"type":"item.started","item":{"id":"item_1","type":"mcp_tool_call","server":"ours","tool":"navigate","arguments":{"url":"http://127.0.0.1:53430/iframe-cross-origin/"},"result":null,"error":null,"status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_1","type":"mcp_tool_call","server":"ours","tool":"navigate","arguments":{"url":"http://127.0.0.1:53430/iframe-cross-origin/"},"result":{"content":[{"type":"text","text":"[t1] http://127.0.0.1:53430/iframe-cross-origin/ \"Checkout - Acme Store\" scroll 0/137\nAcme Store\nCheckout\nmain:\n # Checkout\n Order total: $89.00\n textbox \"Gift message\" [e1] placeholder=\"Optional gift message\"\n iframe \"Partner coupons\" [e2]\n  ## CouponHub\n  textbox \"Coupon code\" [f1e1]\n  button \"Apply coupon\" [f1e2]"}],"structured_content":null},"error":null,"status":"completed"}}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"FAILED: The page opened, but the available browser tools cannot fill fields or click buttons; the required action tool is unavailable."}}
+{"type":"turn.completed","usage":{"input_tokens":106639,"cached_input_tokens":96512,"cache_write_input_tokens":0,"output_tokens":282,"reasoning_output_tokens":27}}

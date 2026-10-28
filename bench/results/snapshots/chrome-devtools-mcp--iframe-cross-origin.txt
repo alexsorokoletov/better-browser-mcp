@@ -1,0 +1,21 @@
+Successfully navigated to http://127.0.0.1:4777/iframe-cross-origin/.
+## Pages
+1: Checkout - Acme Store (http://127.0.0.1:4777/iframe-cross-origin/) [selected]
+## Latest page snapshot
+uid=5_0 RootWebArea "Checkout - Acme Store" url="http://127.0.0.1:4777/iframe-cross-origin/"
+  uid=5_1 banner
+    uid=5_2 "Acme Store"
+    uid=5_3 "Checkout"
+  uid=5_4 main
+    uid=5_5 heading "Checkout" level="1"
+    uid=5_6 "Order total: "
+    uid=5_7 "$89.00"
+    uid=5_8 "Gift message"
+    uid=5_9 textbox "Gift message"
+    uid=5_10 "Coupons are handled by our partner:"
+    uid=5_11 Iframe "Partner coupons"
+      uid=5_12 RootWebArea url="http://127.0.0.1:4778/iframe-cross-origin/widget.html?top=http://127.0.0.1:4777"
+        uid=5_13 heading "CouponHub" level="2"
+        uid=5_14 "Coupon code"
+        uid=5_15 textbox "Coupon code"
+        uid=5_16 button "Apply coupon"

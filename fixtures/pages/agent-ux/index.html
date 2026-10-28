@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Agent UX</title>
+<!-- Test-only page (no bench task): app layout that scrolls <main>, not the page; non-interactive containers;
+     the same label twice; sign-in kept in sessionStorage; repeated console errors. -->
+<style>
+  html, body { margin: 0; }
+  body { height: calc(100vh + 40px); font: 14px system-ui; } /* the page is only a little taller than the window */
+  header { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #eee; }
+  main { position: fixed; top: 60px; bottom: 0; left: 0; right: 0; overflow: auto; }
+  .tiles { display: flex; gap: 8px; padding: 8px; }
+  .tile { width: 120px; height: 80px; background: #cde; }
+  #card { width: 300px; height: 150px; margin: 8px; background: #fed; }
+  .spacer { height: 3000px; }
+</style>
+</head>
+<body>
+<header id="hdr">Header <span id="auth"></span> <span id="status">none picked</span></header>
+<main>
+  <div class="tiles" id="tiles">
+    <div class="tile">ALD</div>
+    <div class="tile">BRK</div>
+  </div>
+  <div id="chart">
+    <label><input type="checkbox" id="series-ald"> ALD</label>
+    <label><input type="checkbox" id="series-brk"> BRK</label>
+  </div>
+  <div id="card">Table card</div>
+  <div class="spacer"></div>
+  <p id="deep">Deep target</p>
+</main>
+<script>
+  for (const t of document.querySelectorAll('.tile')) t.onclick = () => { document.getElementById('status').textContent = 'picked ' + t.textContent; };
+  if (location.hash === '#signin') sessionStorage.setItem('auth', 'token-123');
+  document.getElementById('auth').textContent = sessionStorage.getItem('auth') ? 'signed in' : 'signed out';
+  for (let i = 0; i < 5; i++) console.error('HMR socket failed');
+  console.warn('once');
+</script>
+</body>
+</html>

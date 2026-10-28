@@ -1,0 +1,13 @@
+Successfully navigated to http://127.0.0.1:4777/new-tab/.
+## Pages
+1: Billing - Acme Portal (http://127.0.0.1:4777/new-tab/) [selected]
+## Latest page snapshot
+uid=10_0 RootWebArea "Billing - Acme Portal" url="http://127.0.0.1:4777/new-tab/"
+  uid=10_1 banner
+    uid=10_2 "Acme Portal"
+    uid=10_3 "Billing"
+  uid=10_4 main
+    uid=10_5 heading "Billing" level="1"
+    uid=10_6 "Your plan is managed in the billing portal."
+    uid=10_7 link "Open billing portal" url="http://127.0.0.1:4777/new-tab/portal.html?t=s2bi3f2s"
+    uid=10_9 "Portal not opened yet."

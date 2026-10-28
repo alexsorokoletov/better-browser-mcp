@@ -1,0 +1,410 @@
+[
+ {
+  "name": "ours",
+  "tools": 10,
+  "defsTokens": 1816,
+  "startupMs": 10150,
+  "rows": [
+   {
+    "id": "login-form",
+    "chars": 232,
+    "tokens": 58,
+    "ms": 504,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "long-form",
+    "chars": 1374,
+    "tokens": 344,
+    "ms": 473,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "iframe-same-origin",
+    "chars": 426,
+    "tokens": 107,
+    "ms": 647,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "iframe-cross-origin",
+    "chars": 316,
+    "tokens": 79,
+    "ms": 577,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "shadow-dom",
+    "chars": 242,
+    "tokens": 61,
+    "ms": 469,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "virtual-list",
+    "chars": 1478,
+    "tokens": 370,
+    "ms": 469,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "spa-delayed",
+    "chars": 286,
+    "tokens": 72,
+    "ms": 472,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "dialogs",
+    "chars": 253,
+    "tokens": 63,
+    "ms": 463,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "new-tab",
+    "chars": 251,
+    "tokens": 63,
+    "ms": 492,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "file-upload",
+    "chars": 207,
+    "tokens": 52,
+    "ms": 499,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "canvas",
+    "chars": 144,
+    "tokens": 36,
+    "ms": 499,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "hover-menu-keyboard",
+    "chars": 211,
+    "tokens": 53,
+    "ms": 459,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "data-extraction",
+    "chars": 2516,
+    "tokens": 629,
+    "ms": 494,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "prompt-injection",
+    "chars": 1210,
+    "tokens": 303,
+    "ms": 497,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "drag-reorder",
+    "chars": 325,
+    "tokens": 81,
+    "ms": 458,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "rich-text",
+    "chars": 267,
+    "tokens": 67,
+    "ms": 500,
+    "missing": [],
+    "leaked": []
+   }
+  ]
+ },
+ {
+  "name": "chrome-devtools-mcp",
+  "tools": 32,
+  "defsTokens": 7155,
+  "startupMs": 9436,
+  "rows": [
+   {
+    "id": "login-form",
+    "chars": 651,
+    "tokens": 163,
+    "ms": 289,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "long-form",
+    "chars": 3746,
+    "tokens": 937,
+    "ms": 156,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "iframe-same-origin",
+    "chars": 1059,
+    "tokens": 265,
+    "ms": 153,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "iframe-cross-origin",
+    "chars": 867,
+    "tokens": 217,
+    "ms": 149,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "shadow-dom",
+    "chars": 592,
+    "tokens": 148,
+    "ms": 213,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "virtual-list",
+    "chars": 3187,
+    "tokens": 797,
+    "ms": 158,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "spa-delayed",
+    "chars": 661,
+    "tokens": 165,
+    "ms": 139,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "dialogs",
+    "chars": 579,
+    "tokens": 145,
+    "ms": 135,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "new-tab",
+    "chars": 563,
+    "tokens": 141,
+    "ms": 137,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "file-upload",
+    "chars": 576,
+    "tokens": 144,
+    "ms": 413,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "canvas",
+    "chars": 288,
+    "tokens": 72,
+    "ms": 155,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "hover-menu-keyboard",
+    "chars": 606,
+    "tokens": 152,
+    "ms": 159,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "data-extraction",
+    "chars": 5657,
+    "tokens": 1414,
+    "ms": 202,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "prompt-injection",
+    "chars": 1910,
+    "tokens": 478,
+    "ms": 144,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "drag-reorder",
+    "chars": 584,
+    "tokens": 146,
+    "ms": 143,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "rich-text",
+    "chars": 606,
+    "tokens": 152,
+    "ms": 240,
+    "missing": [],
+    "leaked": []
+   }
+  ]
+ },
+ {
+  "name": "playwright-mcp",
+  "tools": 25,
+  "defsTokens": 5072,
+  "startupMs": 8707,
+  "rows": [
+   {
+    "id": "login-form",
+    "chars": 892,
+    "tokens": 223,
+    "ms": 121,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "long-form",
+    "chars": 4353,
+    "tokens": 1088,
+    "ms": 144,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "iframe-same-origin",
+    "chars": 1300,
+    "tokens": 325,
+    "ms": 226,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "iframe-cross-origin",
+    "chars": 1170,
+    "tokens": 293,
+    "ms": 376,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "shadow-dom",
+    "chars": 935,
+    "tokens": 234,
+    "ms": 102,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "virtual-list",
+    "chars": 6498,
+    "tokens": 1625,
+    "ms": 178,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "spa-delayed",
+    "chars": 895,
+    "tokens": 224,
+    "ms": 147,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "dialogs",
+    "chars": 1220,
+    "tokens": 305,
+    "ms": 112,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "new-tab",
+    "chars": 856,
+    "tokens": 214,
+    "ms": 232,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "file-upload",
+    "chars": 849,
+    "tokens": 212,
+    "ms": 176,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "canvas",
+    "chars": 462,
+    "tokens": 116,
+    "ms": 101,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "hover-menu-keyboard",
+    "chars": 824,
+    "tokens": 206,
+    "ms": 99,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "data-extraction",
+    "chars": 10552,
+    "tokens": 2638,
+    "ms": 527,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "prompt-injection",
+    "chars": 2797,
+    "tokens": 699,
+    "ms": 160,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "drag-reorder",
+    "chars": 933,
+    "tokens": 233,
+    "ms": 82,
+    "missing": [],
+    "leaked": []
+   },
+   {
+    "id": "rich-text",
+    "chars": 959,
+    "tokens": 240,
+    "ms": 92,
+    "missing": [],
+    "leaked": []
+   }
+  ]
+ }
+]

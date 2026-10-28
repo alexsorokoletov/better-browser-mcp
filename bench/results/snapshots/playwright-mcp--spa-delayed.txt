@@ -1,0 +1,28 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/spa-delayed/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/spa-delayed/
+- Page Title: Analytics - Acme Portal
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-50-128Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/spa-delayed/
+- Page Title: Analytics - Acme Portal
+### Snapshot
+```yaml
+- generic [active] [ref=f9e1]:
+  - banner [ref=f9e2]:
+    - strong [ref=f9e3]: Acme Analytics
+    - navigation [ref=f9e4]:
+      - link "Home" [ref=f9e5] [cursor=pointer]:
+        - /url: /spa-delayed/
+      - link "Reports" [ref=f9e6] [cursor=pointer]:
+        - /url: /spa-delayed/reports
+      - link "Settings" [ref=f9e7] [cursor=pointer]:
+        - /url: /spa-delayed/settings
+  - main [ref=f9e8]:
+    - heading "Welcome" [level=1] [ref=f9e9]
+    - paragraph [ref=f9e11]: Pick a section from the navigation bar.
+```

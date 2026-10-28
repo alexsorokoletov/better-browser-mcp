@@ -1,0 +1,4 @@
+[t1] http://127.0.0.1:4777/canvas/ "Mission control" scroll 0/81
+Orbital Ops
+main:
+ canvas [e1] 640x420 (pixels only: use screenshot + click_xy)

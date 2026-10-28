@@ -1,0 +1,9 @@
+[t1] http://127.0.0.1:4777/shadow-dom/ "Preferences - Acme Portal" scroll 0/0
+Acme Portal
+Preferences
+main:
+ # Notification preferences
+ textbox "Display name" [e1]
+ Notification frequency
+ combobox [e2] collapsed haspopup
+ button "Save" [e3]

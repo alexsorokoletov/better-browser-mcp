@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Perf</title>
+<style>body{font:16px system-ui;margin:0} #hero{height:300px;background:#38bdf8;display:flex;align-items:center;justify-content:center;font-size:48px}</style></head>
+<body>
+  <div id="top"></div>
+  <div id="hero">Big hero text</div>
+  <p id="body">Article text that will be pushed down by a late banner.</p>
+<script>
+  // a deliberate long task (~300 ms)
+  setTimeout(() => { const t = performance.now(); while (performance.now() - t < 300) {} }, 100);
+  // a deliberate layout shift: a banner inserted above the content
+  setTimeout(() => { const b = document.createElement('div'); b.style.height = '200px'; b.textContent = 'Late banner'; document.getElementById('top').append(b); }, 600);
+  // a slow request
+  fetch('/api/slow?ms=500').then((r) => r.text());
+</script></body></html>

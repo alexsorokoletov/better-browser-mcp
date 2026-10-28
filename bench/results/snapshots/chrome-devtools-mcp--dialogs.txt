@@ -1,0 +1,18 @@
+Successfully navigated to http://127.0.0.1:4777/dialogs/.
+## Pages
+1: Drafts - Acme Docs (http://127.0.0.1:4777/dialogs/) [selected]
+## Latest page snapshot
+uid=9_0 RootWebArea "Drafts - Acme Docs" url="http://127.0.0.1:4777/dialogs/"
+  uid=9_1 banner
+    uid=9_2 "Acme Docs"
+    uid=9_3 "Drafts"
+  uid=9_4 main
+    uid=9_5 heading "Drafts" level="1"
+    uid=9_6 "Name"
+    uid=9_7 "Updated"
+    uid=9_8 "Quarterly plan"
+    uid=9_9 "2026-09-30"
+    uid=9_10 button "Delete"
+    uid=9_11 "Hiring notes"
+    uid=9_12 "2026-09-12"
+    uid=9_13 button "Delete" disableable disabled

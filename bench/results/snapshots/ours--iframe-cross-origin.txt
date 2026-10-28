@@ -1,0 +1,11 @@
+[t1] http://127.0.0.1:4777/iframe-cross-origin/ "Checkout - Acme Store" scroll 0/137
+Acme Store
+Checkout
+main:
+ # Checkout
+ Order total: $89.00
+ textbox "Gift message" [e1] placeholder="Optional gift message"
+ iframe "Partner coupons" [e2]
+  ## CouponHub
+  textbox "Coupon code" [f3e1]
+  button "Apply coupon" [f3e2]

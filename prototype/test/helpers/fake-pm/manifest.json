@@ -1,0 +1,7 @@
+{
+  "manifest_version": 3,
+  "name": "fake password manager (test)",
+  "version": "1.0",
+  "content_scripts": [{ "matches": ["http://127.0.0.1/*"], "js": ["inject.js"], "all_frames": false }],
+  "web_accessible_resources": [{ "resources": ["menu.html"], "matches": ["http://127.0.0.1/*"] }]
+}

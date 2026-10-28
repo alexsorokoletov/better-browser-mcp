@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="/shared/style.css"></head>
+<body style="background:#fff"><div style="padding:12px">
+  <label for="note">Approval note</label><input id="note" type="text" placeholder="Optional note">
+  <p><button id="approve">Approve payout</button></p>
+  <p id="out" class="muted"></p>
+</div>
+<script>
+  document.getElementById('approve').onclick = async () => {
+    let depth = 0, w = window; while (w !== w.parent) { depth++; w = w.parent; }
+    await top.bench.submit('iframe-same-origin', { action: 'approve', frame: 'inner', depth, note: document.getElementById('note').value });
+    document.getElementById('out').textContent = 'Payout approved.';
+  };
+</script></body></html>

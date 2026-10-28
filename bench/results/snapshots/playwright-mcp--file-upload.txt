@@ -1,0 +1,28 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/file-upload/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/file-upload/
+- Page Title: Upload documents - Acme Portal
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-50-670Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/file-upload/
+- Page Title: Upload documents - Acme Portal
+### Snapshot
+```yaml
+- generic [active] [ref=f12e1]:
+  - banner [ref=f12e2]:
+    - strong [ref=f12e3]: Acme Portal
+    - generic [ref=f12e4]: Documents
+  - main [ref=f12e5]:
+    - heading "Upload documents" [level=1] [ref=f12e6]
+    - generic [ref=f12e7]:
+      - generic [ref=f12e8]: Choose file
+      - button "Choose file" [ref=f12e9]
+      - paragraph [ref=f12e10]:
+        - button "Upload" [disabled] [ref=f12e11]
+    - generic [ref=f12e12]: Or drop files here
+    - list
+```

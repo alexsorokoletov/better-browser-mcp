@@ -1,0 +1,121 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/long-form/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/long-form/
+- Page Title: Create account - Acme Portal
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-49-109Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/long-form/
+- Page Title: Create account - Acme Portal
+### Snapshot
+```yaml
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e2]:
+    - strong [ref=f1e3]: Acme Portal
+    - generic [ref=f1e4]: Onboarding
+  - main [ref=f1e5]:
+    - heading "Create your account" [level=1] [ref=f1e6]
+    - generic [ref=f1e7]:
+      - heading "Personal details" [level=2] [ref=f1e8]
+      - generic [ref=f1e9]:
+        - generic [ref=f1e10]:
+          - generic [ref=f1e11]: First name
+          - textbox "First name" [ref=f1e12]
+        - generic [ref=f1e13]:
+          - generic [ref=f1e14]: Last name
+          - textbox "Last name" [ref=f1e15]
+      - generic [ref=f1e16]:
+        - generic [ref=f1e17]:
+          - generic [ref=f1e18]: Email
+          - textbox "Email" [ref=f1e19]
+        - generic [ref=f1e20]:
+          - generic [ref=f1e21]: Phone
+          - textbox "Phone" [ref=f1e22]
+      - generic [ref=f1e23]:
+        - generic [ref=f1e24]:
+          - generic [ref=f1e25]: Date of birth
+          - textbox "Date of birth" [ref=f1e26]
+        - generic [ref=f1e27]:
+          - generic [ref=f1e28]: Preferred call time
+          - textbox "Preferred call time" [ref=f1e29]
+      - heading "Address" [level=2] [ref=f1e30]
+      - generic [ref=f1e31]: Street address
+      - textbox "Street address" [ref=f1e32]
+      - generic [ref=f1e33]:
+        - generic [ref=f1e34]:
+          - generic [ref=f1e35]: City
+          - textbox "City" [ref=f1e36]
+        - generic [ref=f1e37]:
+          - generic [ref=f1e38]: Postal code
+          - textbox "Postal code" [ref=f1e39]
+      - generic [ref=f1e40]: Country
+      - combobox "Country" [ref=f1e41]:
+        - option "Select a country..." [selected]
+        - option "Australia"
+        - option "Canada"
+        - option "France"
+        - option "Germany"
+        - option "Ireland"
+        - option "Portugal"
+        - option "United Kingdom"
+        - option "United States"
+      - heading "Account" [level=2] [ref=f1e42]
+      - group "Account type" [ref=f1e43]:
+        - generic [ref=f1e45]:
+          - radio "Personal" [checked] [ref=f1e46]
+          - text: Personal
+        - generic [ref=f1e47]:
+          - radio "Business" [ref=f1e48]
+          - text: Business
+        - generic [ref=f1e49]:
+          - radio "Non-profit" [ref=f1e50]
+          - text: Non-profit
+      - generic [ref=f1e51]:
+        - generic [ref=f1e52]:
+          - generic [ref=f1e53]: Plan
+          - combobox "Plan" [ref=f1e54]:
+            - option "Free" [selected]
+            - option "Pro - billed monthly"
+            - option "Pro - billed annually"
+            - option "Enterprise"
+        - generic [ref=f1e55]:
+          - generic [ref=f1e56]: Seats
+          - spinbutton "Seats" [ref=f1e57]: "1"
+      - group "Interests" [ref=f1e58]:
+        - generic [ref=f1e60]:
+          - checkbox "Analytics" [ref=f1e61]
+          - text: Analytics
+        - generic [ref=f1e62]:
+          - checkbox "Automation" [ref=f1e63]
+          - text: Automation
+        - generic [ref=f1e64]:
+          - checkbox "Billing" [checked] [ref=f1e65]
+          - text: Billing
+        - generic [ref=f1e66]:
+          - checkbox "Security" [ref=f1e67]
+          - text: Security
+      - group "Preferred contact method" [ref=f1e68]:
+        - generic [ref=f1e70]:
+          - radio "Email" [checked] [ref=f1e71]
+          - text: Email
+        - generic [ref=f1e72]:
+          - radio "Phone" [ref=f1e73]
+          - text: Phone
+        - generic [ref=f1e74]:
+          - radio "SMS" [ref=f1e75]
+          - text: SMS
+      - generic [ref=f1e76]: About you
+      - textbox "About you" [ref=f1e77]
+      - paragraph [ref=f1e78]:
+        - generic [ref=f1e79]:
+          - checkbox "Send me the monthly newsletter" [checked] [ref=f1e80]
+          - text: Send me the monthly newsletter
+      - paragraph [ref=f1e81]:
+        - generic [ref=f1e82]:
+          - checkbox "I accept the terms of service" [ref=f1e83]
+          - text: I accept the terms of service
+      - button "Create account" [ref=f1e84] [cursor=pointer]
+```

@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Release checklist - Acme Board</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script>
+<style> #list { list-style: none; padding: 0; margin: 0; } #list li { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; margin: 6px 0; cursor: grab; user-select: none; }
+  #list li.dragging { opacity: .4; } #list li.over { border-color: var(--accent); box-shadow: 0 -3px 0 var(--accent) inset; } </style></head>
+<body><header class="bar"><strong>Acme Board</strong></header>
+<main class="wrap" style="max-width:520px">
+  <h1>Release checklist</h1>
+  <p class="muted">Drag steps to reorder.</p>
+  <ul id="list"></ul>
+  <p><button id="save">Save order</button> <span id="out"></span></p>
+</main>
+<script>
+  // Native HTML5 drag and drop only (no buttons, no keyboard alternative).
+  const START = ['Deploy', 'Write spec', 'Monitor', 'Retrospective', 'Review PR'];
+  const list = document.getElementById('list');
+  let dragged = null;
+  for (const t of START) {
+    const li = document.createElement('li'); li.textContent = t; li.draggable = true;
+    li.addEventListener('dragstart', (e) => { dragged = li; li.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', t); });
+    li.addEventListener('dragend', () => { li.classList.remove('dragging'); list.querySelectorAll('.over').forEach((x) => x.classList.remove('over')); dragged = null; });
+    li.addEventListener('dragover', (e) => { e.preventDefault(); li.classList.add('over'); });
+    li.addEventListener('dragleave', () => li.classList.remove('over'));
+    li.addEventListener('drop', (e) => {
+      e.preventDefault(); li.classList.remove('over');
+      if (!dragged || dragged === li) return;
+      const r = li.getBoundingClientRect();
+      li.parentNode.insertBefore(dragged, e.clientY > r.top + r.height / 2 ? li.nextSibling : li);
+    });
+    list.appendChild(li);
+  }
+  document.getElementById('save').onclick = async () => {
+    await bench.submit('drag-reorder', { order: [...list.children].map((li) => li.textContent) });
+    document.getElementById('out').textContent = 'Order saved';
+  };
+</script></body></html>

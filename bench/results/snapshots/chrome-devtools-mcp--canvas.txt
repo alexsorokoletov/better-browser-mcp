@@ -1,0 +1,8 @@
+Successfully navigated to http://127.0.0.1:4777/canvas/.
+## Pages
+1: Mission control (http://127.0.0.1:4777/canvas/) [selected]
+## Latest page snapshot
+uid=12_0 RootWebArea "Mission control" url="http://127.0.0.1:4777/canvas/"
+  uid=12_1 banner
+    uid=12_2 "Orbital Ops"
+  uid=12_3 main

@@ -1,0 +1,18 @@
+# Git hooks (install once: cd prototype && npx lefthook install).
+pre-commit:
+  parallel: true
+  commands:
+    lint:
+      root: "prototype/"
+      glob: "*.{ts,mjs,js}"
+      run: npx oxlint --type-aware --deny-warnings {staged_files}
+    format:
+      root: "prototype/"
+      glob: "*.{ts,mjs,js,json}"
+      run: npx oxfmt {staged_files}
+      stage_fixed: true
+pre-push:
+  commands:
+    typecheck:
+      root: "prototype/"
+      run: npm run -s typecheck

@@ -1,0 +1,162 @@
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4777/virtual-list/');
+```
+### Page
+- Page URL: http://127.0.0.1:4777/virtual-list/
+- Page Title: Inventory - Acme Portal
+### Snapshot
+- [Snapshot](.playwright-mcp/page-2026-10-16T06-17-49-993Z.yml)
+### Page
+- Page URL: http://127.0.0.1:4777/virtual-list/
+- Page Title: Inventory - Acme Portal
+### Snapshot
+```yaml
+- generic [active] [ref=f8e1]:
+  - banner [ref=f8e2]:
+    - strong [ref=f8e3]: Acme Portal
+    - generic [ref=f8e4]: Inventory
+  - main [ref=f8e5]:
+    - heading "Inventory items" [level=1] [ref=f8e6]
+    - paragraph [ref=f8e7]: 5,000 items.
+    - list "Inventory" [ref=f8e8]:
+      - generic [ref=f8e9]:
+        - listitem [ref=f8e10]:
+          - generic [ref=f8e11]: "#1"
+          - generic [ref=f8e12]: Ben Haddad
+          - generic [ref=f8e13]: Lyon
+          - code [ref=f8e14]: AMX-2702
+          - button "Select" [ref=f8e15] [cursor=pointer]
+        - listitem [ref=f8e16]:
+          - generic [ref=f8e17]: "#2"
+          - generic [ref=f8e18]: Ben Jensen
+          - generic [ref=f8e19]: Lisbon
+          - code [ref=f8e20]: TKF-5610
+          - button "Select" [ref=f8e21] [cursor=pointer]
+        - listitem [ref=f8e22]:
+          - generic [ref=f8e23]: "#3"
+          - generic [ref=f8e24]: Mateo Jensen
+          - generic [ref=f8e25]: Lagos
+          - code [ref=f8e26]: CQK-2808
+          - button "Select" [ref=f8e27] [cursor=pointer]
+        - listitem [ref=f8e28]:
+          - generic [ref=f8e29]: "#4"
+          - generic [ref=f8e30]: Ivan Silva
+          - generic [ref=f8e31]: Austin
+          - code [ref=f8e32]: QUR-4049
+          - button "Select" [ref=f8e33] [cursor=pointer]
+        - listitem [ref=f8e34]:
+          - generic [ref=f8e35]: "#5"
+          - generic [ref=f8e36]: Rosa Silva
+          - generic [ref=f8e37]: Austin
+          - code [ref=f8e38]: STM-7045
+          - button "Select" [ref=f8e39] [cursor=pointer]
+        - listitem [ref=f8e40]:
+          - generic [ref=f8e41]: "#6"
+          - generic [ref=f8e42]: Quinn Weber
+          - generic [ref=f8e43]: Berlin
+          - code [ref=f8e44]: HMW-7177
+          - button "Select" [ref=f8e45] [cursor=pointer]
+        - listitem [ref=f8e46]:
+          - generic [ref=f8e47]: "#7"
+          - generic [ref=f8e48]: Quinn Fischer
+          - generic [ref=f8e49]: Porto
+          - code [ref=f8e50]: WCP-7491
+          - button "Select" [ref=f8e51] [cursor=pointer]
+        - listitem [ref=f8e52]:
+          - generic [ref=f8e53]: "#8"
+          - generic [ref=f8e54]: Vik Petrov
+          - generic [ref=f8e55]: Lyon
+          - code [ref=f8e56]: DTJ-3810
+          - button "Select" [ref=f8e57] [cursor=pointer]
+        - listitem [ref=f8e58]:
+          - generic [ref=f8e59]: "#9"
+          - generic [ref=f8e60]: Wren Weber
+          - generic [ref=f8e61]: Lagos
+          - code [ref=f8e62]: VYY-7790
+          - button "Select" [ref=f8e63] [cursor=pointer]
+        - listitem [ref=f8e64]:
+          - generic [ref=f8e65]: "#10"
+          - generic [ref=f8e66]: Wren Petrov
+          - generic [ref=f8e67]: Lagos
+          - code [ref=f8e68]: BTD-7315
+          - button "Select" [ref=f8e69] [cursor=pointer]
+        - listitem [ref=f8e70]:
+          - generic [ref=f8e71]: "#11"
+          - generic [ref=f8e72]: Chloe Baker
+          - generic [ref=f8e73]: Austin
+          - code [ref=f8e74]: GHU-1830
+          - button "Select" [ref=f8e75] [cursor=pointer]
+        - listitem [ref=f8e76]:
+          - generic [ref=f8e77]: "#12"
+          - generic [ref=f8e78]: Ben Kowalski
+          - generic [ref=f8e79]: Krakow
+          - code [ref=f8e80]: VTW-2421
+          - button "Select" [ref=f8e81] [cursor=pointer]
+        - listitem [ref=f8e82]:
+          - generic [ref=f8e83]: "#13"
+          - generic [ref=f8e84]: Wren Moreau
+          - generic [ref=f8e85]: Porto
+          - code [ref=f8e86]: JWT-6152
+          - button "Select" [ref=f8e87] [cursor=pointer]
+        - listitem [ref=f8e88]:
+          - generic [ref=f8e89]: "#14"
+          - generic [ref=f8e90]: Gus Tanaka
+          - generic [ref=f8e91]: Austin
+          - code [ref=f8e92]: YZZ-8548
+          - button "Select" [ref=f8e93] [cursor=pointer]
+        - listitem [ref=f8e94]:
+          - generic [ref=f8e95]: "#15"
+          - generic [ref=f8e96]: Farah Fischer
+          - generic [ref=f8e97]: Denver
+          - code [ref=f8e98]: URU-0212
+          - button "Select" [ref=f8e99] [cursor=pointer]
+        - listitem [ref=f8e100]:
+          - generic [ref=f8e101]: "#16"
+          - generic [ref=f8e102]: Yara Jensen
+          - generic [ref=f8e103]: Porto
+          - code [ref=f8e104]: MBK-2842
+          - button "Select" [ref=f8e105] [cursor=pointer]
+        - listitem [ref=f8e106]:
+          - generic [ref=f8e107]: "#17"
+          - generic [ref=f8e108]: Elena Rossi
+          - generic [ref=f8e109]: Lyon
+          - code [ref=f8e110]: SZR-1806
+          - button "Select" [ref=f8e111] [cursor=pointer]
+        - listitem [ref=f8e112]:
+          - generic [ref=f8e113]: "#18"
+          - generic [ref=f8e114]: Wren Weber
+          - generic [ref=f8e115]: Lyon
+          - code [ref=f8e116]: NCK-1322
+          - button "Select" [ref=f8e117] [cursor=pointer]
+        - listitem [ref=f8e118]:
+          - generic [ref=f8e119]: "#19"
+          - generic [ref=f8e120]: Ava Fischer
+          - generic [ref=f8e121]: Austin
+          - code [ref=f8e122]: GBQ-4378
+          - button "Select" [ref=f8e123] [cursor=pointer]
+        - listitem [ref=f8e124]:
+          - generic [ref=f8e125]: "#20"
+          - generic [ref=f8e126]: Yara Haddad
+          - generic [ref=f8e127]: Lyon
+          - code [ref=f8e128]: ATJ-0070
+          - button "Select" [ref=f8e129] [cursor=pointer]
+        - listitem [ref=f8e130]:
+          - generic [ref=f8e131]: "#21"
+          - generic [ref=f8e132]: Jun Novak
+          - generic [ref=f8e133]: Berlin
+          - code [ref=f8e134]: HNW-8877
+          - button "Select" [ref=f8e135] [cursor=pointer]
+        - listitem [ref=f8e136]:
+          - generic [ref=f8e137]: "#22"
+          - generic [ref=f8e138]: Wren Silva
+          - generic [ref=f8e139]: Berlin
+          - code [ref=f8e140]: UZD-5408
+          - button "Select" [ref=f8e141] [cursor=pointer]
+        - listitem [ref=f8e142]:
+          - generic [ref=f8e143]: "#23"
+          - generic [ref=f8e144]: Chloe Costa
+          - generic [ref=f8e145]: Lyon
+          - code [ref=f8e146]: BFT-9918
+          - button "Select" [ref=f8e147] [cursor=pointer]
+```

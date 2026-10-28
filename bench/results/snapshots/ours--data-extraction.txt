@@ -1,0 +1,41 @@
+[t1] http://127.0.0.1:4777/data-extraction/ "Orders report - Acme Portal" scroll 0/938
+Acme Portal
+Reports
+main:
+ # Orders 2026
+ table:
+  | Order | Date | Customer | Region | Category | Status | Amount |
+  | ORD-10027 | 2026-01-01 | Lena Okafor | Central | Services | Refunded | $599.03 |
+  | ORD-10367 | 2026-01-03 | Farah Garcia | East | Services | Pending | $2,368.76 |
+  | ORD-10124 | 2026-01-04 | Farah Tanaka | North | Services | Pending | $726.92 |
+  | ORD-10191 | 2026-01-04 | Chloe Fischer | Central | Hardware | Paid | $630.52 |
+  | ORD-10189 | 2026-01-05 | Uma Baker | West | Training | Refunded | $1,102.14 |
+  | ORD-10295 | 2026-01-06 | Lena Weber | South | Training | Paid | $986.96 |
+  | ORD-10452 | 2026-01-06 | Nora Costa | North | Software | Paid | $1,440.63 |
+  | ORD-10488 | 2026-01-06 | Jun Petrov | West | Training | Refunded | $318.20 |
+  | ORD-10039 | 2026-01-09 | Quinn Kowalski | South | Services | Pending | $1,904.83 |
+  | ORD-10112 | 2026-01-09 | Ivan Garcia | East | Software | Refunded | $2,166.30 |
+  | ORD-10173 | 2026-01-12 | Mateo Weber | East | Hardware | Pending | $2,175.46 |
+  | ORD-10351 | 2026-01-12 | Sven Tanaka | Central | Hardware | Refunded | $337.98 |
+  | ORD-10214 | 2026-01-13 | Wren Silva | Central | Software | Pending | $345.20 |
+  | ORD-10244 | 2026-01-14 | Quinn Fischer | North | Software | Pending | $2,410.51 |
+  | ORD-10299 | 2026-01-14 | Nora Lopez | North | Hardware | Pending | $1,659.25 |
+  | ORD-10330 | 2026-01-14 | Priya Eriksen | North | Training | Pending | $1,023.48 |
+  | ORD-10341 | 2026-01-14 | Ava Novak | South | Services | Refunded | $2,330.62 |
+  | ORD-10397 | 2026-01-14 | Uma Baker | West | Hardware | Pending | $1,294.29 |
+  | ORD-10004 | 2026-01-15 | Vik Rossi | Central | Services | Pending | $1,973.19 |
+  | ORD-10067 | 2026-01-16 | Elena Fischer | West | Services | Pending | $1,330.84 |
+  | ORD-10316 | 2026-01-16 | Ivan Dubois | South | Hardware | Pending | $1,522.15 |
+  | ORD-10349 | 2026-01-16 | Jun Baker | South | Hardware | Pending | $275.61 |
+  | ORD-10356 | 2026-01-16 | Gus Adams | West | Software | Paid | $1,697.21 |
+  | ORD-10435 | 2026-01-17 | Ben Petrov | East | Training | Pending | $1,216.69 |
+  | ORD-10161 | 2026-01-18 | Yara Dubois | West | Hardware | Pending | $336.62 |
+ button "Previous" [e1]
+ Page 1 of 20
+ button "Next" [e2]
+ combobox "Rows per page" [e3] = "25" options: 10|25|50
+ form:
+  ## Answer
+  textbox "Number of matching orders" [e4]
+  textbox "Total amount (USD)" [e5]
+  button "Submit answer" [e6]

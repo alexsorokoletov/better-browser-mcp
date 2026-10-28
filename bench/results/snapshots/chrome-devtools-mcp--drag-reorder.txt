@@ -1,0 +1,16 @@
+Successfully navigated to http://127.0.0.1:4777/drag-reorder/.
+## Pages
+1: Release checklist - Acme Board (http://127.0.0.1:4777/drag-reorder/) [selected]
+## Latest page snapshot
+uid=16_0 RootWebArea "Release checklist - Acme Board" url="http://127.0.0.1:4777/drag-reorder/"
+  uid=16_1 banner
+    uid=16_2 "Acme Board"
+  uid=16_3 main
+    uid=16_4 heading "Release checklist" level="1"
+    uid=16_5 "Drag steps to reorder."
+    uid=16_6 "Deploy"
+    uid=16_7 "Write spec"
+    uid=16_8 "Monitor"
+    uid=16_9 "Retrospective"
+    uid=16_10 "Review PR"
+    uid=16_11 button "Save order"

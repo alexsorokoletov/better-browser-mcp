@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mission control</title><link rel="stylesheet" href="/shared/style.css"><script src="/shared/bench.js"></script></head>
+<body><header class="bar"><strong>Orbital Ops</strong></header>
+<main class="wrap">
+  <canvas id="c" width="640" height="420" aria-hidden="true" style="width:640px;height:420px;max-width:100%;border-radius:10px;display:block"></canvas>
+</main>
+<script>
+  // Everything is drawn; there is no DOM button or text for the controls.
+  const c = document.getElementById('c'), dpr = window.devicePixelRatio || 1;
+  c.width = 640 * dpr; c.height = 420 * dpr;
+  const g = c.getContext('2d'); g.scale(dpr, dpr);
+  const BTNS = [
+    { id: 'abort', label: 'ABORT', x: 70, y: 300, w: 150, h: 56, color: '#c0392b' },
+    { id: 'launch', label: 'LAUNCH', x: 418, y: 262, w: 170, h: 62, color: '#1f9d55' },
+    { id: 'hold', label: 'HOLD', x: 250, y: 330, w: 130, h: 48, color: '#7f8c8d' },
+  ];
+  let status = 'T-minus 00:10  -  awaiting command';
+  function draw(pressed) {
+    g.fillStyle = '#0d1b2a'; g.fillRect(0, 0, 640, 420);
+    g.fillStyle = '#e0e6ed'; g.font = '600 24px system-ui'; g.fillText('MISSION CONTROL', 24, 44);
+    g.font = '14px ui-monospace, monospace'; g.fillStyle = '#9fb3c8'; g.fillText(status, 24, 72);
+    for (let i = 0; i < 40; i++) { g.fillStyle = 'rgba(255,255,255,' + ((i * 37) % 10) / 12 + ')'; g.fillRect((i * 151) % 620 + 10, (i * 89) % 160 + 90, 2, 2); }
+    g.strokeStyle = '#33506e'; g.lineWidth = 2; g.beginPath(); g.arc(500, 160, 60, 0, Math.PI * 2); g.stroke();
+    for (const b of BTNS) {
+      g.fillStyle = pressed === b.id ? '#fff' : b.color; g.beginPath(); g.roundRect(b.x, b.y, b.w, b.h, 10); g.fill();
+      g.fillStyle = pressed === b.id ? b.color : '#fff'; g.font = '700 20px system-ui'; g.textAlign = 'center'; g.textBaseline = 'middle';
+      g.fillText(b.label, b.x + b.w / 2, b.y + b.h / 2); g.textAlign = 'left'; g.textBaseline = 'alphabetic';
+    }
+  }
+  draw();
+  c.addEventListener('click', async (e) => {
+    const rect = c.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * (640 / rect.width), y = (e.clientY - rect.top) * (420 / rect.height);
+    const hit = BTNS.find((b) => x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h);
+    if (!hit) { bench.event('canvas', 'miss', { x: Math.round(x), y: Math.round(y) }); return; }
+    status = hit.id === 'launch' ? 'Launch sequence started' : hit.id === 'abort' ? 'Mission aborted' : 'Countdown on hold';
+    draw(hit.id);
+    await bench.submit('canvas', { hit: hit.id, x: Math.round(x), y: Math.round(y) });
+  });
+</script></body></html>

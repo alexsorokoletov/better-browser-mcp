@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Network</title></head>
+<body><h1>Orders</h1><p id="state">loading</p>
+<script>
+  document.cookie = 'theme=dark; path=/';
+  fetch('/api/slow?ms=400', { headers: { 'x-client': 'bench', authorization: 'Bearer b34rer-secret-token-xyz', 'x-api-key': 'k3y-secret-value-123' } }).then((r) => r.json()).then((d) => { document.getElementById('state').textContent = d.items.length + ' items'; });
+</script></body></html>
