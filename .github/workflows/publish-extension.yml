@@ -1,0 +1,57 @@
+name: Publish extension
+
+# Builds the relay extension from a commit that passed CI and submits it to the Chrome Web Store.
+# Secrets: CHROME_EXTENSION_ID, CHROME_CLIENT_ID, CHROME_CLIENT_SECRET, CHROME_REFRESH_TOKEN.
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Submit for review after upload (off = upload a draft only)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  chrome:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: prototype } }
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Require green CI on this commit
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          RUN_ID=$(gh run list -w ci.yml -c "$GITHUB_SHA" -s success -L 1 --json databaseId -q '.[0].databaseId')
+          if [ -z "$RUN_ID" ]; then echo "::error::No successful CI run for $GITHUB_SHA"; exit 1; fi
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: npm, cache-dependency-path: prototype/package-lock.json }
+      - run: npm ci --ignore-scripts
+      - name: Build zip
+        id: build
+        run: |
+          # The commit count only grows on main, so every upload has a higher version than the last.
+          VERSION="0.1.$(git rev-list --count HEAD)"
+          npm run -s build:extension -- --zip --version "$VERSION"
+          echo "zip=$(ls dist/better-browser-mcp-extension-$VERSION-*.zip)" >> "$GITHUB_OUTPUT"
+          echo "Version $VERSION" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with: { name: extension-zip, path: '${{ steps.build.outputs.zip }}' }
+      # v3: v4 dropped the auth flags and needs a publisherId.
+      - name: Upload to Chrome Web Store
+        env: &cws
+          EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
+          CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+        run: >
+          npx -y chrome-webstore-upload-cli@3 upload --source "${{ steps.build.outputs.zip }}"
+          --extension-id "$EXTENSION_ID" --client-id "$CLIENT_ID" --client-secret "$CLIENT_SECRET" --refresh-token "$REFRESH_TOKEN"
+      - name: Submit for review
+        if: inputs.publish
+        env: *cws
+        run: >
+          npx -y chrome-webstore-upload-cli@3 publish
+          --extension-id "$EXTENSION_ID" --client-id "$CLIENT_ID" --client-secret "$CLIENT_SECRET" --refresh-token "$REFRESH_TOKEN"

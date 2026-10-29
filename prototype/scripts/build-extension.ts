@@ -35,6 +35,8 @@ for (const file of readdirSync(out, { recursive: true, withFileTypes: true })
 }
 const builtAt = new Date().toISOString();
 const manifest = JSON.parse(readFileSync(join(src, 'manifest.json'), 'utf8'));
+// Store uploads need a higher version each time: --version 0.1.42 (the publish workflow passes one).
+manifest.version = arg('--version') ?? manifest.version;
 manifest.version_name = `${manifest.version} (${builtAt}; ${hash.digest('hex').slice(0, 12)})`;
 writeFileSync(join(out, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 console.log(`Built ${manifest.version_name}\n${out}`);

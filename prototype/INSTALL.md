@@ -1,4 +1,4 @@
-# Install better-browser-mcp (internal team)
+# Install better-browser-mcp
 
 This guide installs the MCP server, adds it to Claude Code or Codex, and connects it to your real Chrome profile.
 
@@ -10,12 +10,11 @@ This guide installs the MCP server, adds it to Claude Code or Codex, and connect
 | Bun (optional, recommended) | 1.4 or later | `bun --version` (install: `brew install oven-sh/bun/bun`) |
 | Google Chrome or Chromium | 125 or later | Chrome is in `/Applications`, or set `BBM_CHROME` |
 | Claude Code and/or Codex CLI | current | `claude --version`, `codex --version` |
-| GitHub access to the repo | | `ssh -T git@github.com` |
 
 ## 2. Get the code and install
 
 ```bash
-git clone git@github.com:alexsorokoletov/better-browser-mcp.git
+git clone https://github.com/alexsorokoletov/better-browser-mcp.git
 cd better-browser-mcp/prototype
 npm install          # or: bun install (it makes a bun.lock file from package-lock.json)
 ```
