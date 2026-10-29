@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { scrub, scrubUrl } from '../scrub.mjs';
 
 // Fake tokens, built from pieces so secret scanners do not flag this file.
-const ANT = ['sk', 'ant', 'api03', 'AbCdEf1234567890abcdef1234567890ABCDEF'].join('-');
+const ANT = ['sk', 'ant', 'api03', 'AbCdEf1234567890abcdef1234567890ABCDEF'].join('-'); // gitleaks:allow
 const GHP = 'gh' + 'p_' + '1234567890abcdefABCDEF1234567890abcd';
 const GHO = 'gh' + 'o_' + 'abcdefghijklmnopqrstuvwxyz0123456789';
 const SLACK = ['xo' + 'xb', '1234567890', 'abcdefghij'].join('-');

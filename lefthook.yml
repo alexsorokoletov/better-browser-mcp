@@ -9,6 +9,7 @@ pre-commit:
     format:
       root: "prototype/"
       glob: "*.{ts,mjs,js,json}"
+      exclude: ["**/package-lock.json"]
       run: npx oxfmt {staged_files}
       stage_fixed: true
 pre-push:
