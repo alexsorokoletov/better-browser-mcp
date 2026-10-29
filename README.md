@@ -11,6 +11,8 @@
   <a href="prototype/README.md">Docs</a>
 </p>
 
+<p align="center"><a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license"></a></p>
+
 ---
 
 I read through my own agent sessions. Browser agents took 1,849 screenshots and read the page as text 7 times. Most of the tokens went into looking at pages, not into doing the work.
@@ -126,3 +128,7 @@ If you do not want to use your own Chrome, set `BBM_MODE=launch` for a fresh hea
 | [`brand/`](brand/) | Icon and social cards |
 
 </details>
+
+## License
+
+[MIT](LICENSE)
