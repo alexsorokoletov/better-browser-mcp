@@ -2,7 +2,7 @@
 
 <h1 align="center">better-browser-mcp</h1>
 
-<p align="center"><b>Your agent, in your Chrome, at a third of the tokens.</b></p>
+<p align="center"><b>Give any AI agent your Chrome. Better than Claude in Chrome, at a third of the tokens.</b></p>
 
 <p align="center">
   <a href="#quick-start">Quick start</a> ·
@@ -17,7 +17,9 @@
 
 I read through my own agent sessions. Browser agents took 1,849 screenshots and read the page as text 7 times. Most of the tokens went into looking at pages, not into doing the work.
 
-bbm is an MCP server that gives Claude Code and Codex a browser that answers in text, in few calls. Open a page and you get the page. Do several things and you get back what happened.
+bbm is an MCP server that gives any agent (Codex, Claude Code, or any other MCP client) your real Chrome, with your sign-ins: the kind of access Claude in Chrome gives Claude. In our benchmark it does that job better than Claude in Chrome: 72% fewer tokens, 3.5× faster, and it passed all 32 runs where Claude in Chrome passed 28.
+
+The browser answers in text, in few calls. Open a page and you get the page. Do several things and you get back what happened.
 
 ```
 > navigate /login-form/
