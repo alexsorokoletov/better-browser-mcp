@@ -14,12 +14,12 @@ This guide installs the MCP server, adds it to Claude Code or Codex, and connect
 ## 2. Get the code and install
 
 ```bash
-git clone https://github.com/alexsorokoletov/better-browser-mcp.git
-cd better-browser-mcp/prototype
+git clone https://github.com/alexsorokoletov/bopbop.git
+cd bopbop/prototype
 npm install          # or: bun install (it makes a bun.lock file from package-lock.json)
 ```
 
-Do the steps below from `better-browser-mcp/prototype`. They use `$PWD` to make an absolute path.
+Do the steps below from `bopbop/prototype`. They use `$PWD` to make an absolute path.
 
 ## 3. Add the server to your agent
 
@@ -50,7 +50,7 @@ With no other settings, the server uses your Chrome through the relay extension 
 This is the default mode. It lets the agent use your sign-ins and cookies.
 
 1. Build the extension: `npm run build:extension`. The output is in `dist/extension`.
-2. In Chrome, go to `chrome://extensions`. Turn on **Developer mode**. Click **Load unpacked**. Select the folder `better-browser-mcp/prototype/dist/extension`.
+2. In Chrome, go to `chrome://extensions`. Turn on **Developer mode**. Click **Load unpacked**. Select the folder `bopbop/prototype/dist/extension`.
 3. The server added in step 3 already defaults to extension mode. If your existing entry explicitly sets another mode, replace it:
 
    ```bash

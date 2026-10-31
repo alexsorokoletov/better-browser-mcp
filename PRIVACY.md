@@ -21,4 +21,4 @@ The better-browser-mcp relay extension connects Chrome to a better-browser-mcp s
 
 ## Contact
 
-Open an issue: https://github.com/alexsorokoletov/better-browser-mcp/issues
+Open an issue: https://github.com/alexsorokoletov/bopbop/issues
