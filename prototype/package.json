@@ -1,13 +1,28 @@
 {
-  "name": "better-browser-mcp",
+  "name": "bopbop",
   "version": "0.1.0",
-  "description": "",
-  "keywords": [],
+  "description": "Give any AI agent your real Chrome: small text snapshots, its own tab group, few tokens. MCP server (formerly better-browser-mcp).",
+  "keywords": [
+    "agent",
+    "browser",
+    "chrome",
+    "claude",
+    "codex",
+    "mcp"
+  ],
   "license": "MIT",
-  "author": "",
-  "bin": {
-    "better-browser-mcp": "src/server.ts"
+  "author": "Alex Sorokoletov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexsorokoletov/bopbop.git",
+    "directory": "prototype"
   },
+  "bin": {
+    "bopbop": "dist/npm/server.js"
+  },
+  "files": [
+    "dist/npm"
+  ],
   "type": "module",
   "scripts": {
     "test": "node --test --test-force-exit --test-timeout=60000 'test/unit/*.test.mjs' 'test/e2e/*.test.mjs'",
@@ -23,7 +38,9 @@
     "lint": "oxlint --type-aware --deny-warnings src scripts extension/src test",
     "fmt": "oxfmt src scripts extension/src test",
     "fmt:check": "oxfmt --check src scripts extension/src test",
-    "coverage": "node --test --test-force-exit --test-timeout=60000 --experimental-test-coverage --test-coverage-include='src/**' 'test/unit/*.test.mjs' 'test/e2e/*.test.mjs'"
+    "coverage": "node --test --test-force-exit --test-timeout=60000 --experimental-test-coverage --test-coverage-include='src/**' 'test/unit/*.test.mjs' 'test/e2e/*.test.mjs'",
+    "build:npm": "rm -rf dist/npm && tsc -p tsconfig.npm.json && mkdir -p dist/npm/page && cp src/page/agent.js dist/npm/page/",
+    "prepublishOnly": "npm run build:npm"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.1",
@@ -41,5 +58,8 @@
     "oxlint": "1.89.0",
     "oxlint-tsgolint": "7.0.2004",
     "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }

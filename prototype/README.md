@@ -4,6 +4,15 @@ The MCP server, the page agent and the relay extension. Setup steps for a team: 
 
 ## Run
 
+From npm (the package is `bopbop`; the project is being renamed from better-browser-mcp):
+
+```bash
+claude mcp add -s user bbm -- npx -y bopbop
+codex mcp add bbm -- npx -y bopbop
+```
+
+From a clone:
+
 ```bash
 bun install                                   # or: npm install
 claude mcp add -s user bbm -- bun /abs/path/prototype/src/server.ts

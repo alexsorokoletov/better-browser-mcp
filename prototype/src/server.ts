@@ -2,6 +2,8 @@
 // better-browser-mcp: token-lean browser control over MCP (stdio).
 // Modes (BBM_MODE): extension (default, relay, BBM_RELAY_PORT), launch (fresh Chromium), connect (BBM_CDP_URL).
 
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import type { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
@@ -408,7 +410,9 @@ async function main() {
   await server.connect(new StdioServerTransport());
 }
 
-if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith('server.ts'))
+// npx and npm bins run us through a symlink: compare real paths.
+const entry = process.argv[1] && pathToFileURL(realpathSync(process.argv[1])).href;
+if (import.meta.url === entry || process.argv[1]?.endsWith('server.ts'))
   main().catch((e) => {
     console.error('[bbm]', e);
     process.exit(1);

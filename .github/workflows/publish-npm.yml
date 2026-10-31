@@ -1,0 +1,42 @@
+name: Publish npm
+
+# Publishes the MCP server as `bopbop` from a commit that passed CI. No token: npm trusted publishing (OIDC).
+# One-time setup on npmjs.com: package bopbop → Settings → Trusted publisher → GitHub Actions,
+# repository alexsorokoletov/bopbop, workflow publish-npm.yml.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g. 0.1.1); must be higher than the last one on npm'
+        required: true
+      tag:
+        description: 'dist-tag'
+        default: latest
+
+permissions:
+  contents: read
+  actions: read
+  id-token: write # OIDC token for npm trusted publishing
+
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: prototype } }
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Require green CI on this commit
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          RUN_ID=$(gh run list -w ci.yml -c "$GITHUB_SHA" -s success -L 1 --json databaseId -q '.[0].databaseId')
+          if [ -z "$RUN_ID" ]; then echo "::error::No successful CI run for $GITHUB_SHA"; exit 1; fi
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with: { node-version: 24, cache: npm, cache-dependency-path: prototype/package-lock.json, registry-url: 'https://registry.npmjs.org' }
+      - run: npm install -g npm@^11.5.1 # trusted publishing needs npm 11.5.1+
+      - run: npm ci --ignore-scripts
+      # prepublishOnly builds dist/npm; provenance is added automatically with trusted publishing.
+      - name: Publish
+        env: { VERSION: '${{ inputs.version }}', TAG: '${{ inputs.tag }}' }
+        run: |
+          npm version --no-git-tag-version "$VERSION"
+          npm publish --access public --tag "$TAG"
+          echo "Published bopbop@$VERSION ($TAG)" >> "$GITHUB_STEP_SUMMARY"
